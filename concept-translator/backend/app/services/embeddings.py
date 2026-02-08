@@ -28,3 +28,8 @@ class EmbeddingService:
         if len(vec1) != self.embedding_dimension or len(vec2) != self.embedding_dimension:
             raise ValueError(f"Embedding vectors must be of dimension {self.embedding_dimension}")
         return float(np.dot(vec1, vec2))
+    
+    def get_similarities(self, query: str, texts: List[str]):
+        query_vec = self.encode(query)
+        text_vecs = self.encode_batch(texts)
+        return [self.get_similarity_from_vecs(query_vec, vec) for vec in text_vecs]
