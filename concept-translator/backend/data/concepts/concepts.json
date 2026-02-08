@@ -1,0 +1,146 @@
+[
+  {
+    "id": "algorithmic-bias",
+    "term": "Algorithmic Bias",
+    "definition": "Algorithmic bias refers to systematic and repeatable errors in artificial intelligence systems that result in unfair or discriminatory outcomes. These biases often arise from skewed training data, historical inequalities embedded in datasets, or design choices that reflect implicit assumptions, leading AI systems to disadvantage certain social groups.",
+    "simple_explanation": "When AI learns from biased or incomplete data, it can repeat and even amplify unfair treatment, such as favoring certain groups while disadvantaging others.",
+    "examples": [
+      "Healthcare algorithms underestimated the medical needs of Black patients by using healthcare costs as a proxy for illness severity, excluding many who needed care.",
+      "Mortgage and lending algorithms charged higher interest rates to Black and Latinx borrowers despite similar financial profiles.",
+      "Online job advertising systems showed high-paying job ads more frequently to men than women due to biased engagement data."
+    ],
+    "policy_relevance": "In Morocco, algorithmic bias poses risks in education, hiring, and public services where AI systems trained on non-representative or imported datasets may reinforce socioeconomic and regional inequalities, highlighting the need for fairness safeguards and localized data governance.",
+    "related_concepts": [
+      "training-data",
+      "ai-auditing",
+      "explainable-ai"
+    ],
+    "sources": [
+      "https://www.nature.com/articles/d41586-019-03228-6",
+      "https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing",
+      "https://www.weforum.org/stories/2023/01/algorithmic-bias-ai/"
+    ],
+    "difficulty_level": "beginner",
+    "categories": [
+      "fairness",
+      "ethics"
+    ],
+    "created_at": "2026-02-08T12:00:00Z",
+    "updated_at": "2026-02-08T12:00:00Z"
+  },
+  {
+    "id": "explainable-ai",
+    "term": "Explainable AI (XAI)",
+    "definition": "Explainable AI encompasses methods and processes that make the behavior and outputs of machine learning models understandable to humans. XAI aims to improve transparency, interpretability, and accountability, particularly for complex or opaque models used in high-stakes decision-making contexts.",
+    "simple_explanation": "Explainable AI helps people understand why an AI system made a certain decision instead of treating it like a mysterious black box.",
+    "examples": [
+      "IBM Watson provides explanations to doctors for its cancer treatment recommendations to support clinical decisions.",
+      "Financial institutions use SHAP-based explanations to clarify why a loan application was approved or rejected.",
+      "Recruitment platforms apply explainability tools to detect and reduce bias in automated hiring scores."
+    ],
+    "policy_relevance": "Although Morocco’s National AI Strategy promotes ethical AI, it lacks explicit XAI requirements. Integrating explainability into public-sector AI systems would improve trust, accountability, and regulatory oversight, especially in education, finance, and public administration.",
+    "related_concepts": [
+      "ai-auditing",
+      "high-risk-ai-systems",
+      "algorithmic-bias"
+    ],
+    "sources": [
+      "https://www.ibm.com/topics/explainable-ai",
+      "https://www.darpa.mil/program/explainable-artificial-intelligence",
+      "https://ec.europa.eu/digital-strategy/explainable-ai"
+    ],
+    "difficulty_level": "intermediate",
+    "categories": [
+      "transparency",
+      "technical"
+    ],
+    "created_at": "2026-02-08T12:00:00Z",
+    "updated_at": "2026-02-08T12:00:00Z"
+  },
+  {
+    "id": "high-risk-ai-systems",
+    "term": "High-Risk AI Systems",
+    "definition": "High-risk AI systems are artificial intelligence applications that pose significant risks to health, safety, or fundamental rights. Under frameworks such as the EU AI Act, these systems operate in sensitive domains and are subject to strict requirements including risk assessment, transparency, documentation, and regulatory oversight.",
+    "simple_explanation": "These are AI systems used in critical areas like hiring, healthcare, or biometric identification, where mistakes or bias can seriously harm people.",
+    "examples": [
+      "AI-powered medical diagnosis tools used to assist doctors in detecting diseases.",
+      "Automated credit scoring or hiring systems that influence access to jobs or loans.",
+      "Biometric identification systems used for border control or law enforcement."
+    ],
+    "policy_relevance": "Morocco currently lacks a formal classification of high-risk AI systems. As AI adoption grows in public services and critical sectors, adopting risk-based governance models inspired by global frameworks could help prevent harm and protect citizens’ rights.",
+    "related_concepts": [
+      "ai-auditing",
+      "explainable-ai",
+      "algorithmic-bias"
+    ],
+    "sources": [
+      "https://artificialintelligenceact.eu/",
+      "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+      "https://www.oecd.org/ai/"
+    ],
+    "difficulty_level": "intermediate",
+    "categories": [
+      "risk",
+      "governance"
+    ],
+    "created_at": "2026-02-08T12:00:00Z",
+    "updated_at": "2026-02-08T12:00:00Z"
+  },
+  {
+    "id": "ai-auditing",
+    "term": "AI Auditing",
+    "definition": "AI auditing is the systematic evaluation of artificial intelligence systems to ensure compliance with ethical, legal, and performance standards. It includes assessing data quality, detecting bias, validating model behavior, and verifying transparency and accountability mechanisms throughout the AI lifecycle.",
+    "simple_explanation": "AI auditing is like an inspection process that checks whether an AI system is fair, accurate, and safe before and after it is deployed.",
+    "examples": [
+      "The EU AI Act requires regular audits for high-risk AI systems used in finance and recruitment.",
+      "Healthcare organizations conduct independent audits to detect discriminatory outcomes in medical algorithms.",
+      "Companies use explainability tools during audits to understand and document AI decision processes."
+    ],
+    "policy_relevance": "Morocco lacks formal AI auditing frameworks, increasing risks of unchecked bias and misuse in education and public-sector AI deployments. Establishing auditing standards would strengthen governance, accountability, and public trust in AI systems.",
+    "related_concepts": [
+      "algorithmic-bias",
+      "high-risk-ai-systems",
+      "explainable-ai"
+    ],
+    "sources": [
+      "https://www.weforum.org/reports/global-ai-governance",
+      "https://algorithmicjusticeleague.org/",
+      "https://oecd.ai/en/ai-governance"
+    ],
+    "difficulty_level": "advanced",
+    "categories": [
+      "governance",
+      "ethics"
+    ],
+    "created_at": "2026-02-08T12:00:00Z",
+    "updated_at": "2026-02-08T12:00:00Z"
+  },
+  {
+    "id": "training-data",
+    "term": "Training Data",
+    "definition": "Training data refers to the datasets used to train machine learning models by enabling them to identify patterns and make predictions. The quality, representativeness, and accuracy of training data are critical, as biased or incomplete datasets can directly lead to unfair, unreliable, or harmful AI outcomes.",
+    "simple_explanation": "AI systems learn from examples, so if the data they learn from is biased or missing groups, the AI will make unfair or inaccurate decisions.",
+    "examples": [
+      "Healthcare datasets that underrepresent minority populations led to AI systems undervaluing their medical needs.",
+      "Historical lending data caused AI models to reproduce existing racial disparities in loan approvals.",
+      "Advertising data based on past clicks resulted in job ads being shown mostly to men."
+    ],
+    "policy_relevance": "Given Morocco’s socioeconomic and regional disparities, AI systems trained on limited or unbalanced local data risk reinforcing inequality. Policymakers must promote diverse, inclusive, and well-governed datasets to ensure fair AI deployment.",
+    "related_concepts": [
+      "algorithmic-bias",
+      "ai-auditing"
+    ],
+    "sources": [
+      "https://www.ibm.com/topics/training-data",
+      "https://www.nist.gov/itl/ai-risk-management-framework",
+      "https://www.unesco.org/en/artificial-intelligence"
+    ],
+    "difficulty_level": "beginner",
+    "categories": [
+      "data",
+      "fairness"
+    ],
+    "created_at": "2026-02-08T12:00:00Z",
+    "updated_at": "2026-02-08T12:00:00Z"
+  }
+]
