@@ -1,7 +1,7 @@
 from typing import List, Union
 from sentence_transformers import SentenceTransformer
 import numpy as np
-from app.core.config import settings
+from concept_translator.backend.app.core.config import settings
 class EmbeddingService:
     def __init__(self):
         self.model_name = settings.EMBEDDING_MODEL
