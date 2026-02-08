@@ -1,17 +1,30 @@
-from typing import List
+from typing import List, Union
+from sentence_transformers import SentenceTransformer
+import numpy as np
+from app.core.config import settings
 class EmbeddingService:
     def __init__(self):
-        # To do: load the model once not everytime
-        pass
+        self.model_name = settings.EMBEDDING_MODEL
+        self.embedding_dimension = settings.EMBEDDING_DIMENSION
+        self.model = SentenceTransformer(self.model_name)
         
     def encode(self, text:str):
-        # To do: convert single text to a vector
-        pass
+        if not text or not text.strip():
+            raise ValueError("Can't Encode Empty Text")
+        return self.model.encode(text, normalize_embeddings=True, show_progress_bar=False)
+    
     
     def encode_batch(self, texts: List[str]):
-        # To do: convert a list of texts to a list of vectors
-        pass
+        if not texts:
+            raise ValueError("Can't Encode Empty List of Texts")
+        return self.model.encode(texts, normalize_embeddings=True, show_progress_bar=False, batch_size=32)
     
-    def get_similarity(self, text1, text2):
-        # To do: compute similarity between two text (0-1 score)
-        pass
+    def get_similarity_from_text(self, text1, text2):
+        vec1 = self.encode(text1)
+        vec2 = self.encode(text2)
+        return self.get_similarity_from_vecs(vec1, vec2)
+    
+    def get_similarity_from_vecs(self, vec1, vec2):
+        if len(vec1) != self.embedding_dimension or len(vec2) != self.embedding_dimension:
+            raise ValueError(f"Embedding vectors must be of dimension {self.embedding_dimension}")
+        return float(np.dot(vec1, vec2))
