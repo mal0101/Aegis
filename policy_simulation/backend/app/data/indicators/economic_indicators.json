@@ -1,0 +1,101 @@
+{
+  "MA": {
+    "country": "Morocco",
+    "gdp_per_capita_ppp": 10305,
+    "govt_ai_readiness_score": 41.78,
+    "regulatory_quality_percentile": 48.1,
+    "internet_penetration": 84.1,
+    "mobile_penetration": 134.0,
+    "source_notes": {
+      "gdp_ppp": "World Bank WDI 2024",
+      "ai_readiness": "Oxford Insights GAIR 2025",
+      "regulatory_quality": "World Bank WGI 2023",
+      "internet": "ITU 2024",
+      "mobile": "ITU 2024"
+    }
+  },
+  "EU": {
+    "country": "European Union",
+    "gdp_per_capita_ppp": 45000,
+    "govt_ai_readiness_score": 75.0,
+    "regulatory_quality_percentile": 85.0,
+    "internet_penetration": 92.0,
+    "mobile_penetration": 120.0,
+    "source_notes": {
+      "gdp_ppp": "World Bank WDI 2024 (EU average)",
+      "ai_readiness": "Oxford Insights GAIR 2025 (EU average)",
+      "regulatory_quality": "World Bank WGI 2023 (EU average)",
+      "internet": "Eurostat 2024",
+      "mobile": "Eurostat 2024"
+    }
+  },
+  "SG": {
+    "country": "Singapore",
+    "gdp_per_capita_ppp": 116500,
+    "govt_ai_readiness_score": 88.0,
+    "regulatory_quality_percentile": 99.5,
+    "internet_penetration": 96.9,
+    "mobile_penetration": 155.0,
+    "source_notes": {
+      "gdp_ppp": "World Bank WDI 2024",
+      "ai_readiness": "Oxford Insights GAIR 2025",
+      "regulatory_quality": "World Bank WGI 2023",
+      "internet": "ITU 2024",
+      "mobile": "ITU 2024"
+    }
+  },
+  "GB": {
+    "country": "United Kingdom",
+    "gdp_per_capita_ppp": 48000,
+    "govt_ai_readiness_score": 82.0,
+    "regulatory_quality_percentile": 93.3,
+    "internet_penetration": 97.8,
+    "mobile_penetration": 118.0,
+    "source_notes": {
+      "gdp_ppp": "World Bank WDI 2024",
+      "ai_readiness": "Oxford Insights GAIR 2025",
+      "regulatory_quality": "World Bank WGI 2023",
+      "internet": "ITU 2024",
+      "mobile": "ITU 2024"
+    }
+  },
+  "CA": {
+    "country": "Canada",
+    "gdp_per_capita_ppp": 55000,
+    "govt_ai_readiness_score": 80.0,
+    "regulatory_quality_percentile": 94.2,
+    "internet_penetration": 97.0,
+    "mobile_penetration": 105.0,
+    "source_notes": {
+      "gdp_ppp": "World Bank WDI 2024",
+      "ai_readiness": "Oxford Insights GAIR 2025",
+      "regulatory_quality": "World Bank WGI 2023",
+      "internet": "ITU 2024",
+      "mobile": "ITU 2024"
+    }
+  },
+  "BR": {
+    "country": "Brazil",
+    "gdp_per_capita_ppp": 17000,
+    "govt_ai_readiness_score": 56.0,
+    "regulatory_quality_percentile": 51.4,
+    "internet_penetration": 84.0,
+    "mobile_penetration": 109.0,
+    "source_notes": {
+      "gdp_ppp": "World Bank WDI 2024",
+      "ai_readiness": "Oxford Insights GAIR 2025",
+      "regulatory_quality": "World Bank WGI 2023",
+      "internet": "ITU 2024",
+      "mobile": "ITU 2024"
+    }
+  },
+  "exchange_rates_to_usd": {
+    "EUR": 1.08,
+    "SGD": 0.74,
+    "GBP": 1.27,
+    "CAD": 0.74,
+    "BRL": 0.20,
+    "USD": 1.0,
+    "MAD": 0.10
+  }
+}

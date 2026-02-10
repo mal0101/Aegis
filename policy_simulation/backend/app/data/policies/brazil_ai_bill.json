@@ -1,0 +1,48 @@
+{
+  "id": "brazil-ai-bill",
+  "name": "Brazil AI Regulation Bill",
+  "jurisdiction": "Brazil",
+  "jurisdiction_iso": "BR",
+  "description": "Comprehensive AI regulation bill establishing a risk-based framework inspired by the EU AI Act but adapted to Brazilian context. Proposes rights for affected persons, transparency requirements, and a national AI authority.",
+  "approach": "mandatory-horizontal",
+  "status": "in-progress",
+  "timeline": {
+    "announced": "2023-05-02",
+    "enacted": null,
+    "full_enforcement": null,
+    "announcement_to_enactment_years": null,
+    "enactment_to_enforcement_years": null,
+    "total_years": null
+  },
+  "costs": {
+    "currency": "BRL",
+    "annual_compliance_cost_per_system": 0,
+    "compliance_breakdown": {
+      "conformity_assessment": 0,
+      "quality_management": 0
+    },
+    "sme_cost_per_system": 0,
+    "penalty_max_percent_turnover": 2.0,
+    "penalty_max_fixed_brl": 50000000,
+    "penalty_max_fixed_eur": 0,
+    "source_gdp_per_capita_ppp": 17000,
+    "cost_source": "Senate PL 2338/2023"
+  },
+  "sectors_affected": ["healthcare", "public-services", "finance", "education", "law-enforcement"],
+  "key_requirements": [
+    "Risk classification of AI systems",
+    "Impact assessment for high-risk systems",
+    "Rights of affected persons (explanation, contestation, human review)",
+    "Transparency and explainability obligations",
+    "National AI authority establishment",
+    "AI governance codes of conduct"
+  ],
+  "tags": ["risk-based", "horizontal", "rights-based", "national-authority", "transparency", "developing-economy", "LGPD-aligned"],
+  "provisions": {
+    "sandbox": true,
+    "rights_provisions": true,
+    "explainability_requirement": true,
+    "audit_requirement": true
+  },
+  "embedding_text": "Brazil AI Regulation Bill. Risk-based horizontal framework. Rights of affected persons including explanation contestation human review. Transparency and explainability. National AI authority. Impact assessment for high-risk systems. Healthcare, public services, finance, education, law enforcement. Penalties up to BRL 50 million or 2% turnover. Senate PL 2338/2023. Developing economy context. LGPD data protection alignment."
+}
