@@ -1,0 +1,242 @@
+[
+  {
+    "id": "algorithmic-bias",
+    "term": "Algorithmic Bias",
+    "definition": "Algorithmic bias refers to systematic and repeatable errors in a computer system that create unfair outcomes, such as privileging one group of users over others. It arises from biased training data, flawed model design, or assumptions embedded during development that reflect existing societal inequalities. Algorithmic bias can manifest in hiring tools, credit scoring, predictive policing, and public resource allocation.",
+    "simple_explanation": "When an AI system consistently makes unfair decisions because it learned from data that already contained human prejudices. For example, an AI trained mostly on data from one region may not work well for people in another region.",
+    "examples": [
+      "A recruitment AI trained on historical hiring data from European companies systematically ranks Moroccan candidates lower because the training data underrepresented North African applicants.",
+      "A facial recognition system deployed at Moroccan border crossings performs significantly worse on darker skin tones and Amazigh facial features because it was trained predominantly on European and East Asian faces.",
+      "A credit scoring algorithm used by Moroccan banks penalizes applicants from rural areas because the training data associates rural postal codes with higher default rates, ignoring that rural agricultural incomes are seasonal but stable."
+    ],
+    "morocco_context": "Morocco's AI ecosystem of roughly 45 startups and 350 researchers faces a critical bias challenge: most available training datasets reflect Western demographics, languages, and economic patterns rather than Moroccan realities. The CNDP (Commission Nationale de Controle de la Protection des Donnees Personnelles), established under Law 09-08, has authority over personal data processing but lacks specific provisions for algorithmic auditing. As Morocco implements its Digital Morocco 2030 strategy across agriculture, tourism, and public services, ensuring AI systems work fairly for Arabic, Darija, and Amazigh speakers is essential to avoid entrenching existing urban-rural and linguistic divides.",
+    "policy_relevance": "Policymakers must mandate bias impact assessments before deploying AI in public services such as healthcare triage, education placement, and social benefit allocation. Morocco's French civil law tradition provides a strong foundation for establishing prescriptive anti-bias regulations, similar to the EU AI Act's requirements for high-risk systems.",
+    "related_concepts": ["fairness-in-ai", "training-data"],
+    "metadata": {
+      "difficulty": "intermediate",
+      "categories": ["fairness", "ethics"],
+      "sources": [
+        "EU AI Act (2024) - Article 10 on Data and Data Governance",
+        "UNESCO Recommendation on the Ethics of AI (2021)",
+        "CNDP Annual Report on Data Protection in Morocco"
+      ]
+    },
+    "searchable_text": "Algorithmic Bias. Algorithmic bias refers to systematic and repeatable errors in a computer system that create unfair outcomes, such as privileging one group of users over others. It arises from biased training data, flawed model design, or assumptions embedded during development that reflect existing societal inequalities. When an AI system consistently makes unfair decisions because it learned from data that already contained human prejudices. Morocco's AI ecosystem faces a critical bias challenge as most available training datasets reflect Western demographics rather than Moroccan realities. CNDP Law 09-08 data protection. Digital Morocco 2030. Recruitment AI bias. Facial recognition. Credit scoring. Arabic Darija Amazigh language bias. Fairness ethics discrimination."
+  },
+  {
+    "id": "explainable-ai",
+    "term": "Explainable AI (XAI)",
+    "definition": "Explainable AI refers to artificial intelligence systems whose decisions, processes, and outputs can be understood and interpreted by human users. XAI techniques include feature importance rankings, decision trees, attention visualization, and natural language explanations that make opaque models transparent. The goal is to enable stakeholders to verify, trust, and challenge AI-driven decisions.",
+    "simple_explanation": "Making AI show its reasoning so that people can understand why it made a particular decision. Instead of a black box that just gives answers, explainable AI lets you see what factors mattered most.",
+    "examples": [
+      "A Moroccan public hospital uses an AI system to prioritize patient referrals, and XAI provides doctors with a ranked list of the medical factors that influenced each prioritization decision.",
+      "The Moroccan tax authority deploys an AI audit selection tool that generates plain-language explanations in French and Arabic for why a particular business was flagged for review.",
+      "An agricultural advisory AI recommends crop rotation strategies to Moroccan farmers and explains its reasoning by showing which soil data, weather patterns, and market price trends drove the recommendation."
+    ],
+    "morocco_context": "Under Morocco's French civil law tradition, administrative decisions must be justified and are subject to judicial review, making explainability a legal necessity for any AI used in government. The JAZARI Institute for AI research has highlighted the need for XAI methods that work in multilingual contexts, producing explanations in French, Arabic, and potentially Amazigh for diverse Moroccan populations. As Digital Morocco 2030 pushes AI adoption in public services, healthcare, and education, citizens must be able to understand and contest decisions that affect their access to services.",
+    "policy_relevance": "Morocco should require that any AI system making consequential decisions about citizens provides human-readable explanations in at least French and Arabic. This aligns with the EU AI Act's transparency requirements and strengthens citizens' rights under Morocco's existing administrative law framework.",
+    "related_concepts": ["transparency", "ai-auditing", "high-risk-ai"],
+    "metadata": {
+      "difficulty": "intermediate",
+      "categories": ["transparency", "accountability"],
+      "sources": [
+        "DARPA XAI Program Final Report",
+        "EU AI Act (2024) - Articles 13-14 on Transparency and Human Oversight",
+        "OECD AI Principles - Transparency and Explainability"
+      ]
+    },
+    "searchable_text": "Explainable AI XAI. Explainable AI refers to artificial intelligence systems whose decisions, processes, and outputs can be understood and interpreted by human users. Making AI show its reasoning so people can understand why it made a decision. Morocco's French civil law tradition requires administrative decisions to be justified and subject to judicial review, making explainability a legal necessity for government AI. JAZARI Institute multilingual explanations. Digital Morocco 2030 public services. Healthcare education transparency. Feature importance decision trees interpretability black box."
+  },
+  {
+    "id": "high-risk-ai",
+    "term": "High-Risk AI Systems",
+    "definition": "High-risk AI systems are artificial intelligence applications that pose significant potential harm to health, safety, fundamental rights, or the environment. These systems require stricter regulatory oversight, mandatory conformity assessments, and ongoing monitoring. The EU AI Act categorizes systems as high-risk based on the domain of deployment (healthcare, law enforcement, education, employment) and the severity of potential consequences.",
+    "simple_explanation": "AI systems used in areas where mistakes could seriously harm people, like medical diagnosis, criminal justice, or hiring decisions. These need extra rules and testing before they can be used.",
+    "examples": [
+      "An AI system used by Moroccan courts to assess recidivism risk when making bail or sentencing recommendations, where errors could unjustly deprive someone of liberty.",
+      "A diagnostic AI deployed in Morocco's regional hospitals to screen for diabetic retinopathy, where a false negative could lead to preventable blindness.",
+      "An automated scoring system used by Moroccan universities for admission decisions, where bias could systematically disadvantage students from certain regions or linguistic backgrounds."
+    ],
+    "morocco_context": "Morocco's key sectors present numerous high-risk AI deployment scenarios: healthcare AI for the country's expanding universal health coverage (AMO), agricultural AI advising smallholder farmers whose livelihoods depend on accurate recommendations, and public service AI allocating social protection benefits under programs like Tayssir and RAMED. With approximately 45 AI startups developing solutions across these sectors, Morocco needs a clear risk classification framework before deployment scales. The CNDP under Law 09-08 currently governs data protection but does not specifically address AI risk classification.",
+    "policy_relevance": "Morocco should establish a tiered risk classification system for AI, drawing from the EU AI Act while adapting categories to Moroccan priority sectors such as agriculture, tourism, and public administration. Mandatory pre-deployment assessments for high-risk systems would protect citizens while still encouraging innovation in lower-risk applications.",
+    "related_concepts": ["ai-auditing", "ai-governance", "regulatory-sandbox"],
+    "metadata": {
+      "difficulty": "advanced",
+      "categories": ["regulation", "risk-management"],
+      "sources": [
+        "EU AI Act (2024) - Annex III High-Risk AI Systems",
+        "OECD Framework for the Classification of AI Systems",
+        "Morocco's National AI Strategy Documents"
+      ]
+    },
+    "searchable_text": "High-Risk AI Systems. High-risk AI systems are artificial intelligence applications that pose significant potential harm to health, safety, fundamental rights, or the environment. AI systems used in areas where mistakes could seriously harm people like medical diagnosis criminal justice or hiring. Morocco's key sectors present numerous high-risk scenarios: healthcare AI for universal health coverage AMO, agricultural AI for smallholder farmers, public service AI for social protection benefits Tayssir RAMED. CNDP Law 09-08 risk classification. EU AI Act tiered risk. Courts sentencing hospitals diagnosis university admissions."
+  },
+  {
+    "id": "ai-auditing",
+    "term": "AI Auditing",
+    "definition": "AI auditing is the systematic evaluation of an AI system's design, data, performance, and outcomes to ensure compliance with legal requirements, ethical standards, and organizational policies. Audits can be internal or conducted by independent third parties, and they assess technical aspects (accuracy, robustness, bias), process aspects (development practices, documentation), and impact aspects (effects on individuals and communities). Regular auditing creates accountability throughout the AI lifecycle.",
+    "simple_explanation": "A formal check-up of an AI system to make sure it works correctly, treats people fairly, and follows the rules. Like a financial audit, but for algorithms instead of accounting books.",
+    "examples": [
+      "An independent auditor evaluates a Moroccan bank's AI-based loan approval system to verify it does not discriminate against applicants based on gender, ethnicity, or geographic origin.",
+      "Morocco's Court of Auditors (Cour des Comptes) conducts an assessment of AI systems used by government ministries to evaluate public spending efficiency, checking for errors and biases in automated budget allocation.",
+      "A third-party audit of an AI-powered customer service chatbot used by a Moroccan telecom operator reveals that it provides significantly lower quality responses in Darija compared to French, prompting remediation."
+    ],
+    "morocco_context": "Morocco has a strong institutional auditing tradition through the Cour des Comptes and sector-specific regulators like Bank Al-Maghrib (banking) and ACAPS (insurance), which could be extended to cover AI systems. The CNDP already conducts compliance audits for data protection under Law 09-08, providing a natural institutional foundation for AI auditing. However, Morocco currently lacks certified AI auditors and standardized audit methodologies adapted to the local context, representing a capacity-building priority for the JAZARI Institute and Moroccan universities.",
+    "policy_relevance": "Morocco should mandate periodic AI audits for high-risk systems deployed in public services and regulated industries such as banking and insurance. Building on existing CNDP audit capabilities and the Cour des Comptes infrastructure would be more efficient than creating new institutions from scratch.",
+    "related_concepts": ["high-risk-ai", "transparency", "ai-governance"],
+    "metadata": {
+      "difficulty": "advanced",
+      "categories": ["accountability", "regulation"],
+      "sources": [
+        "EU AI Act (2024) - Articles 61-62 on Post-Market Monitoring",
+        "NIST AI Risk Management Framework (2023)",
+        "IEEE 7000 Series Standards for Ethical AI"
+      ]
+    },
+    "searchable_text": "AI Auditing. AI auditing is the systematic evaluation of an AI system's design, data, performance, and outcomes to ensure compliance with legal requirements ethical standards and organizational policies. A formal check-up of an AI system to make sure it works correctly and follows the rules. Morocco has a strong institutional auditing tradition through the Cour des Comptes and sector regulators like Bank Al-Maghrib and ACAPS. CNDP compliance audits Law 09-08 foundation for AI auditing. JAZARI Institute capacity building. Third-party independent evaluation bias accuracy robustness documentation."
+  },
+  {
+    "id": "training-data",
+    "term": "Training Data",
+    "definition": "Training data is the collection of examples, records, and information used to teach a machine learning model to recognize patterns and make predictions. The quality, representativeness, and size of training data directly determine the performance, fairness, and reliability of the resulting AI system. Training data may include text, images, audio, structured records, and sensor readings, and it must be carefully curated to avoid encoding biases or violating privacy rights.",
+    "simple_explanation": "The examples an AI learns from before it can make decisions on its own. If the examples are incomplete, outdated, or unfair, the AI will make poor or biased decisions.",
+    "examples": [
+      "A natural language processing model trained only on Modern Standard Arabic text performs poorly when processing Moroccan Darija, because the training data did not represent the dialectal Arabic that most Moroccans actually speak.",
+      "An agricultural pest detection AI trained on European crop images fails to identify common pests affecting Moroccan argan, olive, and citrus trees because these crops were absent from the training dataset.",
+      "A government benefits fraud detection system trained on historical enforcement data disproportionately flags applications from specific regions because past enforcement was concentrated in those areas, not because fraud rates were actually higher."
+    ],
+    "morocco_context": "Morocco faces a significant training data gap: most publicly available AI datasets are in English, reflect Western demographics, and do not capture Moroccan economic, linguistic, or cultural specificities. Creating representative Moroccan datasets requires text in Arabic, Darija, Amazigh, and French, as well as data reflecting the country's diverse geography from the Rif mountains to the Saharan south. The Digital Morocco 2030 strategy should prioritize national dataset initiatives, potentially through partnerships between the JAZARI Institute, Moroccan universities, and government ministries that hold valuable administrative data.",
+    "policy_relevance": "Morocco should invest in creating sovereign training datasets that represent its population and key economic sectors. Policy should establish data sharing frameworks that enable government ministries to contribute anonymized administrative data for AI training while respecting Law 09-08 data protection requirements.",
+    "related_concepts": ["algorithmic-bias", "data-governance", "fairness-in-ai"],
+    "metadata": {
+      "difficulty": "beginner",
+      "categories": ["data", "fairness"],
+      "sources": [
+        "UNESCO Recommendation on the Ethics of AI (2021) - Data Policy",
+        "EU AI Act (2024) - Article 10 on Data and Data Governance",
+        "World Bank Report on Data for Development in MENA"
+      ]
+    },
+    "searchable_text": "Training Data. Training data is the collection of examples records and information used to teach a machine learning model to recognize patterns and make predictions. The examples an AI learns from before it can make decisions. Morocco faces a significant training data gap as most publicly available datasets are in English and reflect Western demographics. Darija Amazigh Arabic French multilingual datasets needed. Agricultural data crop pest detection. Digital Morocco 2030 national dataset initiatives. JAZARI Institute. Law 09-08 data protection. Representativeness quality bias curation labeling."
+  },
+  {
+    "id": "ai-governance",
+    "term": "AI Governance",
+    "definition": "AI governance encompasses the policies, regulations, institutional frameworks, and norms that guide the development, deployment, and oversight of artificial intelligence systems. It includes establishing responsible bodies, defining accountability chains, setting technical standards, and creating enforcement mechanisms. Effective AI governance balances promoting innovation with protecting public interest, rights, and safety.",
+    "simple_explanation": "The set of rules, organizations, and processes a country puts in place to make sure AI is developed and used responsibly. It answers who is in charge, what the rules are, and what happens when something goes wrong.",
+    "examples": [
+      "Morocco establishes a National AI Authority under the Head of Government's office to coordinate AI policy across ministries, set standards, and handle complaints from citizens affected by AI decisions.",
+      "A governance framework requires that every government ministry deploying AI must designate an AI officer responsible for maintaining a registry of AI systems, conducting risk assessments, and reporting incidents.",
+      "Morocco's parliament passes an AI act that creates a mandatory notification system: companies must register high-risk AI systems with the CNDP before deployment, similar to the existing data processing notification requirement under Law 09-08."
+    ],
+    "morocco_context": "Morocco has foundational governance infrastructure that can be extended to AI: the CNDP for data protection, the ADD (Agence de Developpement du Digital) for digital strategy, and sector regulators like ANRT (telecom), Bank Al-Maghrib (finance), and AMMC (capital markets). The Digital Morocco 2030 strategy signals political will for AI adoption, but a dedicated AI governance framework is needed to coordinate across these existing institutions. Morocco's position as a regional leader in North Africa and its strong ties with both the EU and African Union make its governance choices influential for the broader region.",
+    "policy_relevance": "Rather than creating an entirely new AI regulatory body, Morocco should consider designating the CNDP as the lead AI oversight authority with expanded mandate and resources, while establishing an inter-ministerial AI coordination committee. This builds on existing institutional legitimacy and avoids the delays of creating new agencies.",
+    "related_concepts": ["high-risk-ai", "regulatory-sandbox", "data-governance"],
+    "metadata": {
+      "difficulty": "advanced",
+      "categories": ["regulation", "institutional-design"],
+      "sources": [
+        "OECD AI Policy Observatory - Country Profiles",
+        "African Union AI Continental Strategy (2024)",
+        "Morocco Digital Development Agency (ADD) Strategy Documents"
+      ]
+    },
+    "searchable_text": "AI Governance. AI governance encompasses the policies regulations institutional frameworks and norms that guide the development deployment and oversight of artificial intelligence systems. The set of rules organizations and processes a country puts in place to make sure AI is used responsibly. Morocco has foundational governance infrastructure: CNDP for data protection, ADD for digital strategy, ANRT telecom, Bank Al-Maghrib finance, AMMC capital markets. Digital Morocco 2030 political will. National AI Authority inter-ministerial coordination. Law 09-08 expansion. Regional leader North Africa African Union EU. Standards enforcement accountability."
+  },
+  {
+    "id": "regulatory-sandbox",
+    "term": "Regulatory Sandbox",
+    "definition": "A regulatory sandbox is a controlled testing environment established by a regulator that allows companies and government agencies to experiment with innovative AI applications under relaxed regulatory requirements for a limited time. Participants operate under the regulator's supervision with predefined safeguards, scope limitations, and reporting obligations. Sandboxes generate evidence about real-world AI impacts that informs future permanent regulation.",
+    "simple_explanation": "A safe testing zone where companies can try out new AI products under the watchful eye of regulators, without having to follow every existing rule. It lets regulators learn what works before writing permanent laws.",
+    "examples": [
+      "Bank Al-Maghrib creates a fintech sandbox allowing Moroccan startups to test AI-powered credit scoring for unbanked rural populations, with a cap of 5,000 users and mandatory monthly bias reports.",
+      "Morocco's Ministry of Health establishes a sandbox for AI diagnostic tools in three regional hospitals, permitting testing of AI-assisted radiology systems while requiring that every AI recommendation is reviewed by a licensed physician.",
+      "The ANRT launches a sandbox for AI-powered Arabic and Amazigh language processing applications, granting participating startups temporary access to anonymized telecom metadata for model training."
+    ],
+    "morocco_context": "Morocco already has experience with regulatory sandboxes: Bank Al-Maghrib launched a fintech sandbox in 2019 that successfully tested mobile payment innovations before wider regulatory reform. This proven model can be directly extended to AI applications in finance, and replicated by other regulators like ACAPS (insurance) and AMMC (capital markets). With approximately 45 AI startups, Morocco's ecosystem is the right size for sandbox programs that provide meaningful oversight without overwhelming regulatory capacity.",
+    "policy_relevance": "Morocco should expand the Bank Al-Maghrib sandbox model to cover AI-specific use cases in financial services, and create parallel sandboxes in healthcare and agriculture. Sandboxes provide the empirical evidence needed to craft informed AI regulation rather than importing foreign frameworks wholesale.",
+    "related_concepts": ["ai-governance", "high-risk-ai", "ai-auditing"],
+    "metadata": {
+      "difficulty": "intermediate",
+      "categories": ["regulation", "innovation"],
+      "sources": [
+        "Bank Al-Maghrib Fintech Sandbox Framework (2019)",
+        "EU AI Act (2024) - Articles 57-62 on AI Regulatory Sandboxes",
+        "World Bank Regulatory Sandbox Toolkit for Emerging Markets"
+      ]
+    },
+    "searchable_text": "Regulatory Sandbox. A regulatory sandbox is a controlled testing environment established by a regulator that allows companies to experiment with innovative AI applications under relaxed regulatory requirements. A safe testing zone where companies try out new AI products under regulator supervision. Morocco already has experience with sandboxes through Bank Al-Maghrib fintech sandbox launched in 2019. ANRT ACAPS AMMC sector regulators. 45 AI startups ecosystem. Healthcare agriculture finance testing. Controlled environment evidence-based regulation innovation experimentation."
+  },
+  {
+    "id": "data-governance",
+    "term": "Data Governance",
+    "definition": "Data governance is the framework of policies, processes, standards, and organizational structures that ensure data is managed as a strategic asset throughout its lifecycle. It covers data collection, storage, quality, access, sharing, privacy, security, and deletion. For AI systems, data governance directly impacts model quality, fairness, and regulatory compliance, as AI is only as good as the data it is built on.",
+    "simple_explanation": "The rules and systems for managing data properly, from how it is collected to how it is stored, shared, and eventually deleted. Good data governance means AI systems have reliable, legal, and fair data to work with.",
+    "examples": [
+      "Morocco's Ministry of Agriculture establishes data governance standards for the agricultural data collected by regional offices, ensuring consistent formatting, quality checks, and privacy protections before the data is used to train AI crop advisory systems.",
+      "A Moroccan e-government platform implements data governance policies that specify how citizen data collected for one service (e.g., tax filing) can or cannot be repurposed for AI training in another service (e.g., fraud detection).",
+      "The CNDP issues guidelines requiring that any organization collecting biometric data (fingerprints, facial images) for AI systems must obtain explicit informed consent in the individual's preferred language, including Darija and Amazigh."
+    ],
+    "morocco_context": "Morocco's Law 09-08 on the protection of individuals with regard to the processing of personal data, enforced by the CNDP, provides a solid legal foundation for data governance. However, the law predates the AI era and does not address AI-specific challenges such as training data provenance, synthetic data, or the right to not be subject to purely automated decisions. Morocco's government ministries hold vast administrative datasets (health, education, taxation, agriculture) that could fuel AI development if proper cross-ministry data sharing frameworks were established under Digital Morocco 2030.",
+    "policy_relevance": "Morocco should update Law 09-08 to address AI-specific data governance requirements, including rules on training data documentation, consent for AI-specific data use, and cross-ministry data sharing protocols. A national data governance strategy aligned with Digital Morocco 2030 would unlock the value of government data for AI while protecting citizens' rights.",
+    "related_concepts": ["training-data", "ai-governance", "transparency"],
+    "metadata": {
+      "difficulty": "intermediate",
+      "categories": ["data", "regulation"],
+      "sources": [
+        "Morocco Law 09-08 on Personal Data Protection",
+        "CNDP Deliberation Guidelines on Data Processing",
+        "OECD Recommendation on AI and Data Governance (2023)"
+      ]
+    },
+    "searchable_text": "Data Governance. Data governance is the framework of policies processes standards and organizational structures that ensure data is managed as a strategic asset throughout its lifecycle. The rules and systems for managing data properly from collection to deletion. Morocco's Law 09-08 enforced by CNDP provides solid legal foundation but predates the AI era. Cross-ministry data sharing. Digital Morocco 2030 national data strategy. Agricultural data e-government biometric data. Consent privacy quality access security lifecycle management. Training data provenance synthetic data."
+  },
+  {
+    "id": "fairness-in-ai",
+    "term": "Fairness in AI",
+    "definition": "Fairness in AI refers to the principle that artificial intelligence systems should treat all individuals and groups equitably, without unjust discrimination based on protected characteristics such as race, gender, age, language, geographic origin, or socioeconomic status. Fairness is multidimensional: it encompasses equal accuracy across groups, equal opportunity in outcomes, and procedural fairness in how decisions are made. There is no single mathematical definition of fairness, and different fairness metrics can conflict with each other.",
+    "simple_explanation": "Making sure AI systems do not unfairly advantage or disadvantage people based on who they are or where they come from. Fair AI should work equally well for everyone it affects.",
+    "examples": [
+      "A natural language processing system used by Moroccan government call centers provides equally accurate service whether citizens speak French, Modern Standard Arabic, Darija, or Amazigh, rather than performing well only in French.",
+      "An AI-driven hiring platform used by Moroccan companies is evaluated to ensure it recommends candidates at similar rates regardless of gender, with particular attention to sectors where women are historically underrepresented.",
+      "A social benefit allocation AI ensures that rural Moroccan families have equal access to Tayssir education support payments as urban families, even though rural applicants may have less complete digital records."
+    ],
+    "morocco_context": "Fairness in AI is especially critical for Morocco given its linguistic diversity (Arabic, Darija, Amazigh, French), regional economic disparities between urban and rural areas, and the gender gaps that persist in workforce participation and digital access. Morocco's Constitution of 2011 enshrines equality and non-discrimination principles that should extend to AI systems. The digital divide between cities like Casablanca and Rabat versus rural provinces means AI systems trained on digitally-generated data may inherently underrepresent rural populations, requiring deliberate corrective measures.",
+    "policy_relevance": "Morocco should require fairness impact assessments for AI systems used in public services, with mandatory disaggregated performance reporting across linguistic groups, geographic regions, and gender. These assessments should be public to enable civil society oversight.",
+    "related_concepts": ["algorithmic-bias", "training-data", "transparency"],
+    "metadata": {
+      "difficulty": "beginner",
+      "categories": ["fairness", "ethics", "rights"],
+      "sources": [
+        "Morocco Constitution of 2011 - Title II on Fundamental Rights",
+        "UNESCO Recommendation on the Ethics of AI (2021)",
+        "Fairness and Machine Learning textbook (Barocas, Hardt, Narayanan)"
+      ]
+    },
+    "searchable_text": "Fairness in AI. Fairness in AI refers to the principle that artificial intelligence systems should treat all individuals and groups equitably without unjust discrimination. Making sure AI systems do not unfairly advantage or disadvantage people. Morocco's linguistic diversity Arabic Darija Amazigh French, regional economic disparities urban rural, and gender gaps make fairness critical. Constitution of 2011 equality non-discrimination. Tayssir social benefits rural populations digital divide. Hiring gender bias. Equal accuracy equal opportunity procedural fairness protected characteristics."
+  },
+  {
+    "id": "transparency",
+    "term": "Transparency",
+    "definition": "Transparency in the context of AI policy means making the design, operation, capabilities, limitations, and decision-making processes of AI systems open and accessible to relevant stakeholders. It includes disclosing when AI is being used, what data it was trained on, how it reaches decisions, and what its known limitations are. Transparency is a prerequisite for accountability, as stakeholders cannot challenge or improve systems they do not understand.",
+    "simple_explanation": "Being open and honest about how AI systems work, what they can and cannot do, and when they are being used to make decisions that affect people. If people do not know AI is involved, they cannot question its decisions.",
+    "examples": [
+      "Morocco's e-government portal displays a clear notice whenever an AI system is involved in processing a citizen's application, explaining what the AI does and how to request a human review.",
+      "A Moroccan bank publishes an annual transparency report detailing the AI models it uses for credit decisions, their accuracy rates across different demographic groups, and the number of AI decisions that were overturned on appeal.",
+      "The Ministry of Education requires that any AI-powered assessment tool used in Moroccan schools must come with documentation in Arabic and French explaining its methodology, accuracy, and known biases to teachers and parents."
+    ],
+    "morocco_context": "Morocco's legal system, rooted in the French civil law tradition, already emphasizes the obligation to justify administrative decisions (motivation des actes administratifs), which provides a strong legal basis for requiring AI transparency in government. The CNDP's mandate under Law 09-08 includes informing individuals about automated processing of their data, but this falls short of full AI transparency. As Morocco's Digital Morocco 2030 strategy accelerates AI deployment across government services, transparency requirements will be essential to maintain public trust, particularly in a context where digital literacy varies widely between urban and rural populations.",
+    "policy_relevance": "Morocco should establish mandatory transparency requirements for all AI systems used in public administration, including a public AI systems registry, mandatory disclosure notices for citizens, and plain-language documentation in Arabic and French. These requirements should be enforced by the CNDP with expanded authority.",
+    "related_concepts": ["explainable-ai", "ai-auditing", "ai-governance"],
+    "metadata": {
+      "difficulty": "beginner",
+      "categories": ["transparency", "accountability", "rights"],
+      "sources": [
+        "EU AI Act (2024) - Articles 13, 50, 52 on Transparency",
+        "Morocco Law 09-08 - Articles on Information Rights",
+        "OECD AI Principles - Transparency and Explainability Principle"
+      ]
+    },
+    "searchable_text": "Transparency. Transparency in AI policy means making the design operation capabilities limitations and decision-making processes of AI systems open and accessible to relevant stakeholders. Being open and honest about how AI systems work and when they are being used. Morocco's French civil law tradition emphasizes obligation to justify administrative decisions motivation des actes administratifs. CNDP Law 09-08 automated processing information rights. Digital Morocco 2030 public trust digital literacy. AI systems registry mandatory disclosure. E-government bank credit schools education. Arabic French documentation plain language."
+  }
+]

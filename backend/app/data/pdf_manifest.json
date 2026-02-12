@@ -1,0 +1,28 @@
+{
+  "_instructions": "Fill one entry per PDF file in the pdfs/ directory. Remove this _instructions field when done.",
+  "_human_action": "REQUIRED — you must fill this for each PDF you provide",
+  "documents": [
+    {
+      "filename": "eu_ai_act_2024.pdf",
+      "country": "EU",
+      "policy_name": "EU Artificial Intelligence Act",
+      "enacted_date": "2024-03-13",
+      "policy_type": "comprehensive",
+      "language": "en",
+      "legal_system": "civil_law",
+      "sectors": ["all"],
+      "tags": ["risk-based", "comprehensive", "rights-based"]
+    },
+    {
+      "filename": "rwanda_ai_policy_2023.pdf",
+      "country": "Rwanda",
+      "policy_name": "Rwanda National AI Policy",
+      "enacted_date": "2023-06-01",
+      "policy_type": "national_strategy",
+      "language": "en",
+      "legal_system": "civil_law",
+      "sectors": ["agriculture", "healthcare", "education"],
+      "tags": ["development-focused", "capacity-building"]
+    }
+  ]
+}

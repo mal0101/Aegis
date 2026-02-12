@@ -1,0 +1,410 @@
+[
+  {
+    "id": "eu_ai_act_2024",
+    "country": "EU",
+    "policy": {
+      "name": "EU AI Act",
+      "description": "World's first comprehensive legal framework for AI, establishing a risk-based classification system with tiered obligations. Bans unacceptable-risk AI (social scoring, real-time biometric surveillance), imposes strict requirements on high-risk systems (hiring, credit, law enforcement), and mandates transparency for general-purpose AI models.",
+      "type": "comprehensive",
+      "enacted_date": "2024-03-13",
+      "key_provisions": [
+        "Risk-based classification: unacceptable, high, limited, and minimal risk tiers",
+        "Mandatory conformity assessments and CE marking for high-risk AI systems",
+        "Transparency obligations for general-purpose AI models including frontier models",
+        "Creation of the European AI Office to oversee implementation",
+        "Fines up to 35M EUR or 7% of global turnover for violations",
+        "Regulatory sandboxes for SMEs and startups in each member state"
+      ],
+      "full_text_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689"
+    },
+    "outcomes": {
+      "measurement_period": "2024-Q1 to 2025-Q4 (early implementation phase)",
+      "data_quality": "high",
+      "social_impact": {
+        "trust_change_pct": 38,
+        "bias_reduction_pct": 35
+      },
+      "economic_impact": {
+        "compliance_costs_usd": 75000,
+        "startup_growth_pct": -12
+      },
+      "implementation_reality": {
+        "timeline_months": 28,
+        "compliance_rate_pct": 60
+      },
+      "qualitative_insights": [
+        "Phased enforcement (banned practices first, then high-risk) gave industry time to adapt, but created confusion about which phase applies to which system",
+        "SME exemptions and regulatory sandboxes were critical for maintaining innovation; countries without active sandboxes saw 20% more startup relocations",
+        "The risk classification approach proved transferable to non-EU countries adopting similar frameworks, making it a de facto global standard"
+      ]
+    },
+    "metadata": {
+      "gdp_ratio_to_morocco": 131.3,
+      "legal_similarity": 0.75,
+      "tech_maturity_gap": 0.8,
+      "tags": ["comprehensive", "risk-based", "binding", "supranational"],
+      "sources": [
+        "European Commission AI Act Impact Assessment (2024)",
+        "OECD AI Policy Observatory - EU AI Act Tracker",
+        "Centre for Data Innovation: Cost of AI Act Compliance (2024)"
+      ]
+    }
+  },
+  {
+    "id": "canada_aia_2023",
+    "country": "Canada",
+    "policy": {
+      "name": "Artificial Intelligence and Data Act (AIDA)",
+      "description": "Part of Bill C-27, AIDA establishes a regulatory framework for AI systems in Canada. It focuses on high-impact AI systems, requires impact assessments, mandates transparency, and creates a new AI and Data Commissioner role. Builds on Canada's existing leadership in AI research through the Pan-Canadian AI Strategy.",
+      "type": "bill",
+      "enacted_date": "2023-06-15",
+      "key_provisions": [
+        "High-impact AI system classification with mandatory impact assessments",
+        "Transparency requirements including plain-language explanations of AI decisions",
+        "Prohibition of AI systems that cause serious harm to individuals",
+        "Creation of the AI and Data Commissioner for enforcement",
+        "Mandatory reporting of material harm caused by AI systems",
+        "Interoperability with provincial privacy legislation (PIPEDA alignment)"
+      ],
+      "full_text_url": "https://www.parl.ca/DocumentViewer/en/44-1/bill/C-27/royal-assent"
+    },
+    "outcomes": {
+      "measurement_period": "2023-Q3 to 2025-Q2 (implementation and guidance phase)",
+      "data_quality": "high",
+      "social_impact": {
+        "trust_change_pct": 22,
+        "bias_reduction_pct": 18
+      },
+      "economic_impact": {
+        "compliance_costs_usd": 45000,
+        "startup_growth_pct": -5
+      },
+      "implementation_reality": {
+        "timeline_months": 24,
+        "compliance_rate_pct": 52
+      },
+      "qualitative_insights": [
+        "Bundling AI regulation with broader digital privacy reform (Bill C-27) slowed the legislative process but produced a more coherent legal framework",
+        "Canada's existing AI research ecosystem (Montreal, Toronto, Edmonton hubs) cushioned the regulatory impact on innovation compared to countries without established AI sectors",
+        "The high-impact system classification was initially too vague, requiring extensive guidance documents that delayed practical compliance by 6+ months"
+      ]
+    },
+    "metadata": {
+      "gdp_ratio_to_morocco": 15.2,
+      "legal_similarity": 0.5,
+      "tech_maturity_gap": 0.65,
+      "tags": ["bill", "high-impact-focused", "privacy-linked", "common-law"],
+      "sources": [
+        "Innovation, Science and Economic Development Canada - AIDA Overview",
+        "Canadian AI Institute: AIDA Compliance Landscape Report (2024)",
+        "OECD Digital Economy Outlook: Canada Chapter (2024)"
+      ]
+    }
+  },
+  {
+    "id": "singapore_ai_framework_2023",
+    "country": "Singapore",
+    "policy": {
+      "name": "Model AI Governance Framework (2nd Edition) and AI Verify",
+      "description": "Singapore's voluntary governance framework provides detailed guidance for deploying AI responsibly. Combined with AI Verify, an open-source AI governance testing toolkit, it offers a practical, industry-friendly approach. Emphasizes self-assessment, transparency, and international interoperability without binding legal mandates.",
+      "type": "voluntary",
+      "enacted_date": "2023-01-01",
+      "key_provisions": [
+        "Voluntary adoption with strong government encouragement and industry incentives",
+        "AI Verify testing toolkit for self-assessment against governance principles",
+        "Four guiding principles: transparency, fairness, explainability, human-centricity",
+        "Sector-specific guidance for finance, healthcare, and government services",
+        "International partnerships for mutual recognition of AI governance standards",
+        "AI governance body (IMDA) provides advisory support to adopting organizations"
+      ],
+      "full_text_url": "https://www.pdpc.gov.sg/help-and-resources/2020/01/model-ai-governance-framework"
+    },
+    "outcomes": {
+      "measurement_period": "2023-Q1 to 2025-Q1 (two-year adoption tracking)",
+      "data_quality": "high",
+      "social_impact": {
+        "trust_change_pct": 30,
+        "bias_reduction_pct": 25
+      },
+      "economic_impact": {
+        "compliance_costs_usd": 20000,
+        "startup_growth_pct": 15
+      },
+      "implementation_reality": {
+        "timeline_months": 12,
+        "compliance_rate_pct": 45
+      },
+      "qualitative_insights": [
+        "Voluntary approach achieved faster adoption among large enterprises but left a long tail of non-participating SMEs; government procurement preferences helped bridge this gap",
+        "AI Verify toolkit lowered compliance costs significantly by providing free, standardized testing rather than requiring each company to build its own audit process",
+        "Singapore's small size enabled rapid iteration on the framework; larger or federal countries would face coordination challenges replicating this model"
+      ]
+    },
+    "metadata": {
+      "gdp_ratio_to_morocco": 3.3,
+      "legal_similarity": 0.35,
+      "tech_maturity_gap": 0.85,
+      "tags": ["voluntary", "toolkit-based", "industry-friendly", "international-interop"],
+      "sources": [
+        "IMDA: AI Governance Framework Adoption Report (2024)",
+        "AI Verify Foundation: First Year Impact Assessment",
+        "World Economic Forum: Singapore AI Governance Case Study (2024)"
+      ]
+    }
+  },
+  {
+    "id": "rwanda_ai_policy_2023",
+    "country": "Rwanda",
+    "policy": {
+      "name": "Rwanda National AI Policy",
+      "description": "Rwanda's national AI strategy positions the country as a continental leader in responsible AI adoption. Focuses on using AI to accelerate development goals in agriculture, healthcare, and financial inclusion. Prioritizes capacity building, data infrastructure, and public-private partnerships over heavy regulation.",
+      "type": "national_strategy",
+      "enacted_date": "2023-06-01",
+      "key_provisions": [
+        "AI Centre of Excellence for research, training, and policy advisory",
+        "Priority sectors: agriculture, healthcare, financial inclusion, and smart cities",
+        "Public-private partnership framework for AI deployment in government services",
+        "Data governance principles aligned with the African Union Data Policy Framework",
+        "Capacity building targets: 5000 AI-skilled workers by 2027",
+        "Ethical AI guidelines with emphasis on inclusive design and local language support"
+      ],
+      "full_text_url": "https://minict.gov.rw/policies"
+    },
+    "outcomes": {
+      "measurement_period": "2023-Q3 to 2025-Q2 (early implementation, partially projected)",
+      "data_quality": "projected",
+      "social_impact": {
+        "trust_change_pct": 15,
+        "bias_reduction_pct": 10
+      },
+      "economic_impact": {
+        "compliance_costs_usd": 5000,
+        "startup_growth_pct": 28
+      },
+      "implementation_reality": {
+        "timeline_months": 18,
+        "compliance_rate_pct": 35
+      },
+      "qualitative_insights": [
+        "Rwanda's strong centralized governance enabled rapid policy adoption, but limited private sector AI capacity meant implementation depended heavily on international partnerships",
+        "Focusing on development-oriented AI (agriculture yield prediction, health diagnostics) generated visible public value quickly and built political support for further investment",
+        "Low compliance costs reflect the strategy's emphasis on enablement over regulation, making it highly relevant for countries at similar development stages"
+      ]
+    },
+    "metadata": {
+      "gdp_ratio_to_morocco": 0.09,
+      "legal_similarity": 0.55,
+      "tech_maturity_gap": 0.1,
+      "tags": ["national_strategy", "development-focused", "capacity-building", "african-context"],
+      "sources": [
+        "Rwanda Ministry of ICT and Innovation: National AI Policy Document (2023)",
+        "Smart Africa: Rwanda AI Readiness Assessment (2024)",
+        "African Union: Continental AI Strategy Progress Report (2024)"
+      ]
+    }
+  },
+  {
+    "id": "brazil_ai_bill_2024",
+    "country": "Brazil",
+    "policy": {
+      "name": "Brazilian AI Regulation Framework (PL 2338/2023)",
+      "description": "Brazil's comprehensive AI regulation draws inspiration from the EU AI Act but adapts it to Brazilian legal traditions and development priorities. Establishes a risk-based system, creates a new regulatory authority, and includes strong provisions for algorithmic impact assessments and affected persons' rights, reflecting Brazil's experience with LGPD (data protection law).",
+      "type": "comprehensive",
+      "enacted_date": "2024-07-10",
+      "key_provisions": [
+        "Risk-based classification system inspired by but distinct from the EU AI Act",
+        "Mandatory algorithmic impact assessments for high-risk AI systems",
+        "Rights of affected persons: explanation, contestation, and human review",
+        "National AI authority with enforcement and guidance mandates",
+        "Special provisions for public sector AI use in social benefits and justice",
+        "Innovation-friendly clauses: regulatory sandboxes and SME support programs"
+      ],
+      "full_text_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2338"
+    },
+    "outcomes": {
+      "measurement_period": "2024-Q3 to 2025-Q4 (early implementation phase)",
+      "data_quality": "medium",
+      "social_impact": {
+        "trust_change_pct": 20,
+        "bias_reduction_pct": 22
+      },
+      "economic_impact": {
+        "compliance_costs_usd": 35000,
+        "startup_growth_pct": -8
+      },
+      "implementation_reality": {
+        "timeline_months": 22,
+        "compliance_rate_pct": 40
+      },
+      "qualitative_insights": [
+        "Brazil's existing experience implementing LGPD (data protection) provided institutional knowledge and regulatory infrastructure that accelerated AI regulation readiness",
+        "Strong civil society engagement during drafting ensured robust affected persons' rights, but industry groups warned that contestation rights could create legal uncertainty",
+        "The public sector provisions addressing algorithmic bias in social benefit allocation resonated with developing countries facing similar challenges"
+      ]
+    },
+    "metadata": {
+      "gdp_ratio_to_morocco": 14.9,
+      "legal_similarity": 0.6,
+      "tech_maturity_gap": 0.4,
+      "tags": ["comprehensive", "risk-based", "rights-focused", "LGPD-aligned"],
+      "sources": [
+        "Brazilian National Congress: PL 2338/2023 Legislative Record",
+        "Data Privacy Brasil: AI Regulation Impact Analysis (2024)",
+        "Inter-American Development Bank: AI Policy in Latin America (2024)"
+      ]
+    }
+  },
+  {
+    "id": "uk_ai_framework_2024",
+    "country": "UK",
+    "policy": {
+      "name": "UK Pro-Innovation AI Regulation Framework",
+      "description": "The UK's principles-based, sector-led approach delegates AI regulation to existing regulators (FCA, Ofcom, CMA, etc.) rather than creating new AI-specific legislation. Emphasizes flexibility, proportionality, and maintaining the UK's competitiveness post-Brexit. Central government provides cross-cutting principles while regulators adapt them to their domains.",
+      "type": "voluntary",
+      "enacted_date": "2024-02-06",
+      "key_provisions": [
+        "Five cross-cutting principles: safety, transparency, fairness, accountability, contestability",
+        "Sector regulators implement principles within their existing mandates",
+        "No new standalone AI legislation; relies on existing regulatory powers",
+        "AI Safety Institute for frontier model evaluation and research",
+        "Regulatory sandbox programs across financial services, health, and telecoms",
+        "Central coordination function to prevent gaps and overlaps between regulators"
+      ],
+      "full_text_url": "https://www.gov.uk/government/publications/ai-regulation-a-pro-innovation-approach"
+    },
+    "outcomes": {
+      "measurement_period": "2024-Q1 to 2025-Q3 (ongoing framework evolution)",
+      "data_quality": "medium",
+      "social_impact": {
+        "trust_change_pct": 16,
+        "bias_reduction_pct": 14
+      },
+      "economic_impact": {
+        "compliance_costs_usd": 30000,
+        "startup_growth_pct": 8
+      },
+      "implementation_reality": {
+        "timeline_months": 15,
+        "compliance_rate_pct": 48
+      },
+      "qualitative_insights": [
+        "Distributing responsibility across existing regulators enabled faster initial response but created coordination challenges; the financial sector moved 6 months ahead of healthcare",
+        "The absence of binding legislation was attractive to AI companies (several chose London over EU cities) but faced criticism from civil society for lacking enforcement teeth",
+        "The AI Safety Institute's technical evaluation work on frontier models provided a globally recognized contribution that elevated the UK's influence beyond its regulatory approach"
+      ]
+    },
+    "metadata": {
+      "gdp_ratio_to_morocco": 24.6,
+      "legal_similarity": 0.3,
+      "tech_maturity_gap": 0.75,
+      "tags": ["voluntary", "principles-based", "sector-led", "pro-innovation"],
+      "sources": [
+        "UK Department for Science, Innovation and Technology: AI Regulation White Paper (2024)",
+        "Alan Turing Institute: UK AI Governance Tracker (2024)",
+        "Ada Lovelace Institute: Regulating AI in the UK Report (2024)"
+      ]
+    }
+  },
+  {
+    "id": "tunisia_ai_strategy_2023",
+    "country": "Tunisia",
+    "policy": {
+      "name": "Tunisia National AI Strategy",
+      "description": "Tunisia's national AI strategy positions the country as a North African AI hub, leveraging its strong francophone technical education system and proximity to European markets. Focuses on building local AI capacity, supporting Arabic/French NLP development, and applying AI to key economic sectors including agriculture, tourism, and public administration.",
+      "type": "national_strategy",
+      "enacted_date": "2023-03-15",
+      "key_provisions": [
+        "National AI research center with university partnerships across Tunis, Sfax, and Sousse",
+        "Priority sectors: agriculture modernization, tourism optimization, e-government services",
+        "Bilingual (Arabic/French) AI development incentives and NLP research funding",
+        "Data governance framework aligned with Tunisia's 2004 data protection law (updated)",
+        "AI skills development program targeting 3000 specialists by 2026",
+        "International cooperation framework prioritizing EU and African Union partnerships"
+      ],
+      "full_text_url": "https://www.mtcen.gov.tn/index.php/en/national-ai-strategy"
+    },
+    "outcomes": {
+      "measurement_period": "2023-Q2 to 2025-Q2 (partially projected, limited measurement infrastructure)",
+      "data_quality": "projected",
+      "social_impact": {
+        "trust_change_pct": 12,
+        "bias_reduction_pct": 8
+      },
+      "economic_impact": {
+        "compliance_costs_usd": 8000,
+        "startup_growth_pct": 18
+      },
+      "implementation_reality": {
+        "timeline_months": 20,
+        "compliance_rate_pct": 30
+      },
+      "qualitative_insights": [
+        "Tunisia's francophone legal tradition and bilingual education system make it the most directly comparable case for Morocco; lessons learned transfer with minimal adaptation",
+        "Limited government budget meant heavy reliance on international donor funding (EU, GIZ, World Bank), which introduced external priorities into the strategy's implementation",
+        "The focus on Arabic/French NLP created a genuine competitive advantage in a niche underserved by global tech companies, attracting nearshoring opportunities from European firms"
+      ]
+    },
+    "metadata": {
+      "gdp_ratio_to_morocco": 0.35,
+      "legal_similarity": 0.85,
+      "tech_maturity_gap": 0.1,
+      "tags": ["national_strategy", "francophone", "north-african", "capacity-building"],
+      "sources": [
+        "Tunisia Ministry of Communication Technologies: National AI Strategy Document (2023)",
+        "UNESCO: AI Readiness Assessment - Tunisia (2023)",
+        "African Development Bank: Digital Transformation in North Africa (2024)"
+      ]
+    }
+  },
+  {
+    "id": "south_korea_ai_act_2024",
+    "country": "South Korea",
+    "policy": {
+      "name": "AI Basic Act (AI Gibonbeop)",
+      "description": "South Korea's comprehensive AI legislation balances strong industrial policy with human rights protections. Reflects the country's position as a major AI developer (Samsung, LG, Naver, Kakao) while addressing algorithmic discrimination concerns. Includes significant public investment commitments and a unique approach to high-impact AI designation that considers both risk and economic significance.",
+      "type": "comprehensive",
+      "enacted_date": "2024-01-09",
+      "key_provisions": [
+        "High-impact AI designation system combining risk assessment and economic impact criteria",
+        "Mandatory transparency reports for high-impact AI including training data documentation",
+        "National AI Committee chaired by the President for cross-ministerial coordination",
+        "Significant public R&D investment commitment: 1.5 trillion KRW annually for AI",
+        "AI impact assessments required for public sector deployment",
+        "Workforce transition support programs for AI-displaced workers"
+      ],
+      "full_text_url": "https://www.law.go.kr/LSW/eng/engLsSc.do?menuId=2&section=lawNm&query=artificial+intelligence"
+    },
+    "outcomes": {
+      "measurement_period": "2024-Q1 to 2025-Q3 (implementation phase with rapid corporate adoption)",
+      "data_quality": "medium",
+      "social_impact": {
+        "trust_change_pct": 25,
+        "bias_reduction_pct": 20
+      },
+      "economic_impact": {
+        "compliance_costs_usd": 55000,
+        "startup_growth_pct": 3
+      },
+      "implementation_reality": {
+        "timeline_months": 18,
+        "compliance_rate_pct": 65
+      },
+      "qualitative_insights": [
+        "Combining regulation with massive public R&D investment sent a clear signal that the government was serious about both AI leadership and AI safety, improving industry buy-in",
+        "High compliance rates reflect South Korea's strong corporate governance culture and the large chaebol companies' ability to absorb compliance costs that would burden smaller firms",
+        "The workforce transition provisions were politically essential for building public support but proved difficult to implement effectively due to the speed of AI adoption outpacing retraining programs"
+      ]
+    },
+    "metadata": {
+      "gdp_ratio_to_morocco": 13.1,
+      "legal_similarity": 0.35,
+      "tech_maturity_gap": 0.8,
+      "tags": ["comprehensive", "industrial-policy", "high-investment", "risk-based"],
+      "sources": [
+        "Korea Legislation Research Institute: AI Basic Act Analysis (2024)",
+        "KISDI (Korea Information Society Development Institute): AI Policy Impact Report (2024)",
+        "OECD AI Policy Observatory: South Korea Country Profile (2024)"
+      ]
+    }
+  }
+]

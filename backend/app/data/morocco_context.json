@@ -1,0 +1,29 @@
+{
+  "country": "Morocco",
+  "demographics": {
+    "population": 37000000,
+    "literacy_rate": 75.2,
+    "languages": ["Arabic", "Darija", "Amazigh", "French"],
+    "urban_population_pct": 64
+  },
+  "economy": {
+    "gdp_usd_billions": 134,
+    "gdp_per_capita_usd": 3600,
+    "key_sectors": ["agriculture", "tourism", "manufacturing", "public_services", "healthcare", "education", "finance"],
+    "digital_economy_pct_gdp": 3.5
+  },
+  "ai_ecosystem": {
+    "ai_startups": 45,
+    "research_centers": ["JAZARI Institute Rabat", "JAZARI Institute Benguerir"],
+    "ai_researchers": 350,
+    "university_programs": 12,
+    "internet_penetration_pct": 84
+  },
+  "governance": {
+    "data_protection_law": "Law 09-08 (CNDP)",
+    "digital_strategy": "Digital Morocco 2030",
+    "legal_system": "civil_law_french_tradition",
+    "regulatory_body": "CNDP (Commission Nationale de Controle de la Protection des Donnees)",
+    "ai_specific_regulation": false
+  }
+}
