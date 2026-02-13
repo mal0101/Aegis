@@ -7,6 +7,15 @@ from typing import Optional
 logger = logging.getLogger(__name__)
 
 
+def _sanitize_id(filename: str) -> str:
+    """Convert filename to a clean, short chunk ID prefix."""
+    stem = Path(filename).stem
+    clean = re.sub(r'[^a-z0-9]+', '_', stem.lower()).strip('_')
+    if len(clean) > 50:
+        clean = clean[:50].rstrip('_')
+    return clean
+
+
 @dataclass
 class PolicyChunk:
     """A single chunk of policy text with full metadata."""
@@ -31,6 +40,10 @@ def extract_pdf_to_markdown(pdf_path: str) -> str:
     import pymupdf4llm
     logger.info(f"Extracting PDF: {pdf_path}")
     markdown = pymupdf4llm.to_markdown(pdf_path)
+
+    if len(markdown.strip()) < 100:
+        logger.warning(f"Extraction produced very little text ({len(markdown)} chars) from {Path(pdf_path).name} — may be scanned/image PDF")
+
     logger.info(f"Extracted {len(markdown)} chars from {Path(pdf_path).name}")
     return markdown
 
@@ -70,7 +83,10 @@ def chunk_policy_document(
     refined_sections = []
     for section in sections:
         if estimate_tokens(section) > max_tokens * 2:
-            subsections = re.split(r'(?=\n(?:Article|Section|Chapter|ARTICLE|SECTION|CHAPTER)\s+\d+)', section)
+            subsections = re.split(
+                r'(?=\n(?:Article|Section|Chapter|Part|Clause|Title|ARTICLE|SECTION|CHAPTER|PART|CLAUSE|TITLE)\s+\d+)',
+                section
+            )
             refined_sections.extend(subsections)
         else:
             refined_sections.append(section)
@@ -126,7 +142,7 @@ def chunk_policy_document(
         enriched = f"{context_prefix}\n[Section: {header}]\n\n{text}" if header else f"{context_prefix}\n\n{text}"
 
         chunks.append(PolicyChunk(
-            chunk_id=f"{Path(filename).stem}_chunk_{i:04d}",
+            chunk_id=f"{_sanitize_id(filename)}_chunk_{i:04d}",
             text=text,
             enriched_text=enriched,
             source_file=filename,

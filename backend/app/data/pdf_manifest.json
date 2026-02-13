@@ -1,9 +1,40 @@
 {
-  "_instructions": "Fill one entry per PDF file in the pdfs/ directory. Remove this _instructions field when done.",
-  "_human_action": "REQUIRED — you must fill this for each PDF you provide",
   "documents": [
     {
-      "filename": "eu_ai_act_2024.pdf",
+      "filename": "A BILL FOR AN ACT TO ENSURE PROPER CONTROL OF USAGE OF ARTIFICIAL INTELLIGENCE (AI) TECHNOLOGY IN NIGERIA AND FOR RELATED MATTERS, 2023.pdf",
+      "country": "Nigeria",
+      "policy_name": "Nigeria AI Bill 2023",
+      "enacted_date": "2023-01-01",
+      "policy_type": "bill",
+      "language": "en",
+      "legal_system": "common_law",
+      "sectors": ["all"],
+      "tags": ["bill", "comprehensive", "african-context"]
+    },
+    {
+      "filename": "Americas-AI-Action-Plan.pdf",
+      "country": "USA",
+      "policy_name": "Americas AI Action Plan",
+      "enacted_date": "2025-02-01",
+      "policy_type": "national_strategy",
+      "language": "en",
+      "legal_system": "common_law",
+      "sectors": ["all"],
+      "tags": ["national-strategy", "innovation-focused"]
+    },
+    {
+      "filename": "China\u2019s New AI Regulations.pdf",
+      "country": "China",
+      "policy_name": "China AI Regulations Overview",
+      "enacted_date": "2023-01-01",
+      "policy_type": "comprehensive",
+      "language": "en",
+      "legal_system": "civil_law",
+      "sectors": ["all"],
+      "tags": ["comprehensive", "state-led", "content-regulation"]
+    },
+    {
+      "filename": "EU AI Act.pdf",
       "country": "EU",
       "policy_name": "EU Artificial Intelligence Act",
       "enacted_date": "2024-03-13",
@@ -14,15 +45,26 @@
       "tags": ["risk-based", "comprehensive", "rights-based"]
     },
     {
-      "filename": "rwanda_ai_policy_2023.pdf",
-      "country": "Rwanda",
-      "policy_name": "Rwanda National AI Policy",
-      "enacted_date": "2023-06-01",
-      "policy_type": "national_strategy",
+      "filename": "Global AI Governance Overview_ Understanding Regulatory Requirements Across Global Jurisdictions.pdf",
+      "country": "International",
+      "policy_name": "Global AI Governance Overview",
+      "enacted_date": "2024-01-01",
+      "policy_type": "analysis",
+      "language": "en",
+      "legal_system": "mixed",
+      "sectors": ["all"],
+      "tags": ["comparative", "multi-jurisdictional", "overview"]
+    },
+    {
+      "filename": "t0592_china_ai_law_draft_EN.pdf",
+      "country": "China",
+      "policy_name": "China AI Law Draft",
+      "enacted_date": "2024-01-01",
+      "policy_type": "bill",
       "language": "en",
       "legal_system": "civil_law",
-      "sectors": ["agriculture", "healthcare", "education"],
-      "tags": ["development-focused", "capacity-building"]
+      "sectors": ["all"],
+      "tags": ["draft", "comprehensive", "state-led"]
     }
   ]
 }

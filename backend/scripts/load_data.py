@@ -131,6 +131,11 @@ def load_pdf_documents():
     collection = vectordb_service.get_or_create_collection(collection_name)
 
     ids = [c.chunk_id for c in chunks]
+    if len(ids) != len(set(ids)):
+        dupes = [x for x in set(ids) if ids.count(x) > 1]
+        logger.error(f"Duplicate chunk IDs detected: {dupes}")
+        raise ValueError(f"Duplicate chunk IDs — check _sanitize_id truncation: {dupes}")
+
     texts = [c.enriched_text for c in chunks]
     metadatas = [{
         "source_file": c.source_file,
