@@ -1,4 +1,4 @@
-# PolicyBridge
+# Aegis
 
 AI-powered decision support platform for Moroccan policymakers. Understand AI policy concepts, explore international case studies, and simulate policy impacts — all locally, for free.
 
