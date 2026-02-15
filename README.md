@@ -20,7 +20,7 @@ AI-powered decision support platform for Moroccan policymakers. Understand AI po
 | Backend | Python, FastAPI, Uvicorn |
 | Vector DB | ChromaDB (file-based, persistent) |
 | Embeddings | BGE-M3 (1024D) or MiniLM fallback (384D) |
-| LLM | Qroq API |
+| LLM | Groq API |
 | Search | Hybrid: dense + BM25 + Reciprocal Rank Fusion |
 | PDF extraction | pymupdf4llm |
 | Frontend | React + Vite + Tailwind CSS |
