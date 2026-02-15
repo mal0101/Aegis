@@ -16,9 +16,9 @@ function DimensionBar({ dimension }) {
   return (
     <div className="bg-white rounded-xl border border-gray-200 p-4">
       <div className="flex justify-between items-center mb-2">
-        <h4 className="font-semibold text-gray-900">{dimension.name}</h4>
+        <h4 className="font-semibold text-rich-black">{dimension.name}</h4>
         <div className="flex items-center gap-2">
-          <span className="text-lg font-bold text-gray-900">{score.toFixed(1)}</span>
+          <span className="text-lg font-bold text-rich-black">{score.toFixed(1)}</span>
           <span className="text-xs text-gray-400">/10</span>
           <span className={`text-xs ${confidenceColor[dimension.confidence] || 'text-gray-400'}`}>
             ({dimension.confidence})
@@ -38,17 +38,17 @@ function ImpactReport({ result }) {
 
   return (
     <div className="space-y-6">
-      <div className="bg-emerald-50 rounded-xl p-5 border border-emerald-200">
-        <h3 className="text-lg font-semibold text-emerald-900 mb-2">Executive Summary</h3>
-        <p className="text-emerald-800">{result.executive_summary}</p>
-        <div className="flex gap-4 mt-3 text-sm text-emerald-600">
+      <div className="bg-violet-blue-50 rounded-xl p-5 border border-violet-blue-200">
+        <h3 className="text-lg font-semibold text-violet-blue-900 mb-2">Executive Summary</h3>
+        <p className="text-violet-blue-800">{result.executive_summary}</p>
+        <div className="flex gap-4 mt-3 text-sm text-violet-blue">
           <span>Evidence base: {result.evidence_base_size} policies</span>
           <span>Processing: {(result.processing_time_ms / 1000).toFixed(1)}s</span>
         </div>
       </div>
 
       <div>
-        <h3 className="text-lg font-semibold text-gray-900 mb-3">Impact Dimensions</h3>
+        <h3 className="text-lg font-semibold text-rich-black mb-3">Impact Dimensions</h3>
         <div className="grid md:grid-cols-2 gap-3">
           {result.impact_dimensions?.map((dim, i) => (
             <DimensionBar key={i} dimension={dim} />
@@ -58,11 +58,11 @@ function ImpactReport({ result }) {
 
       {result.similar_policies?.length > 0 && (
         <div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-3">Similar International Policies</h3>
+          <h3 className="text-lg font-semibold text-rich-black mb-3">Similar International Policies</h3>
           <div className="flex flex-wrap gap-2">
             {result.similar_policies.map(sp => (
               <div key={sp.id} className="bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm">
-                <span className="font-medium text-gray-900">{sp.policy_name}</span>
+                <span className="font-medium text-rich-black">{sp.policy_name}</span>
                 <span className="text-gray-400 ml-1">({sp.country})</span>
               </div>
             ))}
@@ -72,11 +72,11 @@ function ImpactReport({ result }) {
 
       {result.recommendations?.length > 0 && (
         <div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-3">Recommendations</h3>
+          <h3 className="text-lg font-semibold text-rich-black mb-3">Recommendations</h3>
           <ul className="space-y-2">
             {result.recommendations.map((rec, i) => (
               <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
-                <CheckCircle2 size={16} className="text-emerald-500 mt-0.5 shrink-0" />
+                <CheckCircle2 size={16} className="text-violet-blue mt-0.5 shrink-0" />
                 {rec}
               </li>
             ))}
@@ -86,7 +86,7 @@ function ImpactReport({ result }) {
 
       {result.full_analysis && (
         <details className="bg-white rounded-xl border border-gray-200 p-4">
-          <summary className="cursor-pointer font-semibold text-gray-900 flex items-center gap-2">
+          <summary className="cursor-pointer font-semibold text-rich-black flex items-center gap-2">
             <ChevronDown size={16} />
             Full Analysis
           </summary>
@@ -153,7 +153,7 @@ export default function ImpactSimulator() {
       const res = await predictImpact(form);
       setResult(res.data);
     } catch (err) {
-      setError(err.response?.data?.detail || 'Prediction failed. Ensure Ollama is running.');
+      setError(err.response?.data?.detail || 'Prediction failed. Please check that the LLM service is running.');
     } finally {
       setLoading(false);
     }
@@ -162,7 +162,7 @@ export default function ImpactSimulator() {
   return (
     <div>
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Impact Simulator</h1>
+        <h1 className="text-2xl font-bold text-rich-black">Impact Simulator</h1>
         <p className="text-gray-600 text-sm">Predict how a proposed AI policy would impact Morocco.</p>
       </div>
 
@@ -174,7 +174,7 @@ export default function ImpactSimulator() {
               <button
                 key={t.id}
                 onClick={() => loadTemplate(t)}
-                className="px-3 py-1.5 text-sm bg-white border border-gray-200 rounded-lg hover:border-purple-300 hover:bg-purple-50 transition-colors"
+                className="px-3 py-1.5 text-sm bg-white border border-gray-200 rounded-lg hover:border-violet-blue-200 hover:bg-violet-blue-50 transition-colors"
               >
                 {t.name}
               </button>
@@ -191,7 +191,7 @@ export default function ImpactSimulator() {
             value={form.policy_name}
             onChange={e => setForm(prev => ({ ...prev, policy_name: e.target.value }))}
             placeholder="e.g., Morocco AI Transparency Act"
-            className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-blue"
           />
         </div>
 
@@ -202,7 +202,7 @@ export default function ImpactSimulator() {
             onChange={e => setForm(prev => ({ ...prev, description: e.target.value }))}
             placeholder="Describe the proposed policy..."
             rows={3}
-            className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-blue"
           />
         </div>
 
@@ -216,7 +216,7 @@ export default function ImpactSimulator() {
                 onClick={() => toggleSector(s)}
                 className={`px-3 py-1.5 text-sm rounded-lg border transition-colors ${
                   form.sectors.includes(s)
-                    ? 'bg-purple-100 border-purple-300 text-purple-700'
+                    ? 'bg-violet-blue-50 border-violet-blue-200 text-violet-blue'
                     : 'bg-white border-gray-200 text-gray-600 hover:border-gray-300'
                 }`}
               >
@@ -231,7 +231,7 @@ export default function ImpactSimulator() {
           <select
             value={form.policy_type}
             onChange={e => setForm(prev => ({ ...prev, policy_type: e.target.value }))}
-            className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-blue"
           >
             {policyTypes.map(pt => (
               <option key={pt} value={pt}>{pt.replace('_', ' ')}</option>
@@ -249,7 +249,7 @@ export default function ImpactSimulator() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-3 bg-purple-600 text-white rounded-xl hover:bg-purple-700 disabled:opacity-50 font-medium flex items-center justify-center gap-2 transition-colors"
+          className="w-full py-3 bg-violet-blue text-white rounded-xl hover:bg-violet-blue-700 disabled:opacity-50 font-medium flex items-center justify-center gap-2 transition-colors"
         >
           {loading ? (
             <>

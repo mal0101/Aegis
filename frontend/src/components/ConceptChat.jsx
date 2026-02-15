@@ -40,7 +40,7 @@ export default function ConceptChat() {
     } catch (err) {
       setMessages(prev => [...prev, {
         role: 'assistant',
-        content: 'Sorry, I could not process your question. Make sure Ollama is running with Mistral.',
+        content: 'Sorry, I could not process your question. Please check that the LLM service is running.',
         error: true,
       }]);
     } finally {
@@ -55,7 +55,7 @@ export default function ConceptChat() {
   return (
     <div className="flex flex-col h-[calc(100vh-10rem)]">
       <div className="mb-4">
-        <h1 className="text-2xl font-bold text-gray-900">AI Concept Simulator</h1>
+        <h1 className="text-2xl font-bold text-rich-black">AI Concept Simulator</h1>
         <p className="text-gray-600 text-sm">Ask about AI policy concepts — answers are tailored to Morocco's context.</p>
       </div>
 
@@ -67,7 +67,7 @@ export default function ConceptChat() {
               <button
                 key={c.id}
                 onClick={() => quickAsk(c.term)}
-                className="px-3 py-1.5 text-xs bg-white border border-gray-200 rounded-full hover:border-emerald-300 hover:bg-emerald-50 transition-colors"
+                className="px-3 py-1.5 text-xs bg-white border border-gray-200 rounded-full hover:border-violet-blue-200 hover:bg-violet-blue-50 transition-colors"
               >
                 {c.term}
               </button>
@@ -81,7 +81,7 @@ export default function ConceptChat() {
           <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
             <div className={`max-w-[80%] rounded-xl px-4 py-3 ${
               msg.role === 'user'
-                ? 'bg-emerald-600 text-white'
+                ? 'bg-violet-blue text-white'
                 : msg.error
                   ? 'bg-red-50 border border-red-200 text-red-700'
                   : 'bg-white border border-gray-200 text-gray-800'
@@ -99,7 +99,7 @@ export default function ConceptChat() {
                           <button
                             key={r.id}
                             onClick={() => quickAsk(r.term)}
-                            className="px-2 py-0.5 text-xs bg-emerald-50 text-emerald-700 rounded-full hover:bg-emerald-100"
+                            className="px-2 py-0.5 text-xs bg-violet-blue-50 text-violet-blue rounded-full hover:bg-violet-blue-100"
                           >
                             {r.term}
                           </button>
@@ -134,13 +134,13 @@ export default function ConceptChat() {
           value={input}
           onChange={e => setInput(e.target.value)}
           placeholder="Ask about an AI policy concept..."
-          className="flex-1 px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+          className="flex-1 px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-violet-blue focus:border-transparent"
           disabled={loading}
         />
         <button
           type="submit"
           disabled={loading || !input.trim()}
-          className="px-4 py-3 bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="px-4 py-3 bg-violet-blue text-white rounded-xl hover:bg-violet-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
           <Send size={18} />
         </button>

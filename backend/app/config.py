@@ -21,10 +21,10 @@ PDF_MANIFEST_FILE = DATA_DIR / "pdf_manifest.json"
 PRIMARY_EMBEDDING_MODEL = "BAAI/bge-m3"
 FALLBACK_EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
-# LLM (Ollama — local, free, OpenAI-compatible API)
-OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434/v1")
-LLM_MODEL = os.getenv("LLM_MODEL", "mistral")
-LLM_FALLBACK_MODEL = os.getenv("LLM_FALLBACK_MODEL", "qwen2.5:3b")
+# LLM (Groq API — OpenAI-compatible)
+LLM_BASE_URL = os.getenv("LLM_BASE_URL", "https://api.groq.com/openai/v1")
+LLM_API_KEY = os.getenv("LLM_API_KEY", "")
+LLM_MODEL = os.getenv("LLM_MODEL", "llama-3.3-70b-versatile")
 LLM_TEMPERATURE = float(os.getenv("LLM_TEMPERATURE", "0.4"))
 LLM_MAX_TOKENS = int(os.getenv("LLM_MAX_TOKENS", "1024"))
 

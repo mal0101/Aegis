@@ -1,6 +1,6 @@
 import logging
 from openai import OpenAI
-from app.config import OLLAMA_BASE_URL, LLM_MODEL, LLM_FALLBACK_MODEL, LLM_TEMPERATURE, LLM_MAX_TOKENS
+from app.config import LLM_BASE_URL, LLM_API_KEY, LLM_MODEL, LLM_TEMPERATURE, LLM_MAX_TOKENS
 
 logger = logging.getLogger(__name__)
 
@@ -8,41 +8,23 @@ logger = logging.getLogger(__name__)
 class LLMService:
     def __init__(self):
         self._model = LLM_MODEL
+        if not LLM_API_KEY:
+            raise RuntimeError("LLM_API_KEY not set. Add it to your .env file.")
         self._client = OpenAI(
-            base_url=OLLAMA_BASE_URL,
-            api_key="ollama"  # Ollama doesn't need a real key but the SDK requires the field
+            base_url=LLM_BASE_URL,
+            api_key=LLM_API_KEY
         )
         self._verify_connection()
-        logger.info(f"LLM service initialized: {self._model} via Ollama")
+        logger.info(f"LLM service initialized: {self._model} via {LLM_BASE_URL}")
 
     def _verify_connection(self):
-        """Check that Ollama is running and the model is pulled."""
+        """Verify the API is reachable with a lightweight models.list call."""
         try:
-            models = self._client.models.list()
-            available = [m.id for m in models.data]
-            logger.info(f"Ollama models available: {available}")
-
-            if self._model not in available and f"{self._model}:latest" not in available:
-                matching = [m for m in available if m.startswith(self._model)]
-                if not matching:
-                    logger.warning(f"Model '{self._model}' not found. Available: {available}")
-                    fallback_match = [m for m in available if m.startswith(LLM_FALLBACK_MODEL)]
-                    if fallback_match:
-                        self._model = LLM_FALLBACK_MODEL
-                        logger.info(f"Using fallback model: {self._model}")
-                    else:
-                        raise RuntimeError(
-                            f"Neither '{LLM_MODEL}' nor '{LLM_FALLBACK_MODEL}' found in Ollama. "
-                            f"Run: ollama pull {LLM_MODEL}"
-                        )
+            self._client.models.list()
         except Exception as e:
-            if "Connection" in str(type(e).__name__) or "refused" in str(e).lower():
-                raise RuntimeError(
-                    "Ollama is not running. Start it with: ollama serve\n"
-                    "Install Ollama: curl -fsSL https://ollama.com/install.sh | sh\n"
-                    f"Then pull the model: ollama pull {LLM_MODEL}"
-                ) from e
-            raise
+            raise RuntimeError(
+                f"Could not connect to LLM API at {LLM_BASE_URL}: {e}"
+            ) from e
 
     def generate(
         self,

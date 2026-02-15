@@ -1,53 +1,88 @@
 import { useState, useEffect } from 'react';
-import { Search, X, Globe, Calendar, Tag, BarChart2, Loader2 } from 'lucide-react';
-import { listCaseStudies, searchCaseStudies, getCaseStudy } from '../api';
+import { Link } from 'react-router-dom';
+import {
+  Search, X, Loader2, ChevronRight, Download, ArrowRight,
+  CheckCircle2, Info, AlertTriangle, RotateCcw, Globe, Calendar, BarChart2
+} from 'lucide-react';
+import { listCaseStudies, getCaseStudy } from '../api';
+
+const ITEMS_PER_PAGE = 6;
+
+const REGION_MAP = {
+  'Europe': ['EU', 'UK'],
+  'North America': ['Canada'],
+  'Asia Pacific': ['Singapore', 'South Korea'],
+  'Africa': ['Rwanda', 'Tunisia'],
+  'Latin America': ['Brazil'],
+};
+
+const COUNTRY_FLAGS = {
+  'EU': '\u{1F1EA}\u{1F1FA}',
+  'Canada': '\u{1F1E8}\u{1F1E6}',
+  'Singapore': '\u{1F1F8}\u{1F1EC}',
+  'Rwanda': '\u{1F1F7}\u{1F1FC}',
+  'Brazil': '\u{1F1E7}\u{1F1F7}',
+  'UK': '\u{1F1EC}\u{1F1E7}',
+  'Tunisia': '\u{1F1F9}\u{1F1F3}',
+  'South Korea': '\u{1F1F0}\u{1F1F7}',
+};
+
+const TYPE_BADGE_COLORS = {
+  'comprehensive': 'bg-violet-blue-50 text-violet-blue border border-violet-blue-200',
+  'bill': 'bg-yellow-50 text-yellow-700 border border-yellow-200',
+  'voluntary': 'bg-green-50 text-green-700 border border-green-200',
+  'national_strategy': 'bg-blue-50 text-blue-700 border border-blue-200',
+  'sandbox': 'bg-orange-50 text-orange-700 border border-orange-200',
+};
+
+const QUALITY_LABELS = {
+  'high': { label: 'High Quality', color: 'text-green-600', icon: CheckCircle2 },
+  'medium': { label: 'Standardized', color: 'text-blue-600', icon: Info },
+  'projected': { label: 'Projected', color: 'text-yellow-600', icon: AlertTriangle },
+};
 
 function CaseStudyCard({ study, onClick }) {
-  const typeColors = {
-    comprehensive: 'bg-blue-100 text-blue-700',
-    voluntary: 'bg-green-100 text-green-700',
-    national_strategy: 'bg-purple-100 text-purple-700',
-    bill: 'bg-orange-100 text-orange-700',
-    sandbox: 'bg-yellow-100 text-yellow-700',
-  };
+  const badgeColor = TYPE_BADGE_COLORS[study.policy_type] || 'bg-gray-100 text-gray-600 border border-gray-200';
+  const quality = QUALITY_LABELS[study.data_quality] || QUALITY_LABELS['medium'];
+  const QualityIcon = quality.icon;
+  const flag = COUNTRY_FLAGS[study.country] || '';
 
   return (
     <div
       onClick={onClick}
-      className="bg-white rounded-xl border border-gray-200 p-5 hover:shadow-md hover:border-blue-300 transition-all cursor-pointer"
+      className="bg-white rounded-xl border border-gray-200 p-5 hover:shadow-md hover:border-violet-blue-200 transition-all cursor-pointer flex flex-col"
     >
-      <div className="flex items-start justify-between mb-3">
+      <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
-          <Globe size={16} className="text-gray-400" />
-          <span className="font-semibold text-gray-900">{study.country}</span>
+          <span className="text-lg">{flag}</span>
+          <span className="font-semibold text-rich-black text-sm">{study.country}</span>
         </div>
-        <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${typeColors[study.policy_type] || 'bg-gray-100 text-gray-600'}`}>
+        <span className={`px-2.5 py-0.5 rounded-full text-xs font-medium uppercase ${badgeColor}`}>
           {study.policy_type?.replace('_', ' ')}
         </span>
       </div>
-      <h3 className="text-lg font-semibold text-gray-900 mb-2">{study.policy_name}</h3>
-      <div className="flex items-center gap-4 text-sm text-gray-500">
-        <span className="flex items-center gap-1">
-          <Calendar size={14} />
-          {study.enacted_date}
-        </span>
-        <span className={`flex items-center gap-1 ${
-          study.data_quality === 'high' ? 'text-green-600' :
-          study.data_quality === 'medium' ? 'text-yellow-600' : 'text-gray-400'
-        }`}>
-          <BarChart2 size={14} />
-          {study.data_quality} quality
-        </span>
-      </div>
+      <h3 className="text-base font-semibold text-rich-black mb-2 line-clamp-2">{study.policy_name}</h3>
+      <p className="text-xs text-gray-500 mb-3">
+        Published: {study.enacted_date}
+      </p>
       {study.tags && study.tags.length > 0 && (
-        <div className="flex flex-wrap gap-1 mt-3">
-          {study.tags.map(tag => (
-            <span key={tag} className="px-2 py-0.5 text-xs bg-gray-100 text-gray-600 rounded-full">
+        <div className="flex flex-wrap gap-1 mb-3">
+          {study.tags.slice(0, 3).map(tag => (
+            <span key={tag} className="px-2 py-0.5 text-xs bg-alice-blue text-gray-600 rounded-full">
               {tag}
             </span>
           ))}
         </div>
       )}
+      <div className="mt-auto pt-3 border-t border-gray-100 flex items-center justify-between">
+        <div className={`flex items-center gap-1 text-xs ${quality.color}`}>
+          <QualityIcon size={12} />
+          <span>{quality.label}</span>
+        </div>
+        <span className="text-xs font-medium text-violet-blue flex items-center gap-1">
+          DETAILS <ArrowRight size={12} />
+        </span>
+      </div>
     </div>
   );
 }
@@ -64,7 +99,7 @@ function CaseStudyDetail({ study, onClose }) {
       <div className="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6" onClick={e => e.stopPropagation()}>
         <div className="flex justify-between items-start mb-4">
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">{study.policy?.name}</h2>
+            <h2 className="text-2xl font-bold text-rich-black">{study.policy?.name}</h2>
             <p className="text-gray-500">{study.country} — {study.policy?.enacted_date}</p>
           </div>
           <button onClick={onClose} className="p-1 hover:bg-gray-100 rounded-lg">
@@ -75,11 +110,11 @@ function CaseStudyDetail({ study, onClose }) {
         <p className="text-gray-700 mb-6">{study.policy?.description}</p>
 
         <div className="grid md:grid-cols-3 gap-4 mb-6">
-          <div className="bg-blue-50 rounded-xl p-4">
-            <h4 className="text-sm font-semibold text-blue-800 mb-2">Social Impact</h4>
+          <div className="bg-violet-blue-50 rounded-xl p-4">
+            <h4 className="text-sm font-semibold text-violet-blue-800 mb-2">Social Impact</h4>
             <div className="space-y-1">
-              <p className="text-sm">Trust change: <span className="font-semibold text-blue-700">+{social.trust_change_pct}%</span></p>
-              <p className="text-sm">Bias reduction: <span className="font-semibold text-blue-700">{social.bias_reduction_pct}%</span></p>
+              <p className="text-sm">Trust change: <span className="font-semibold text-violet-blue">+{social.trust_change_pct}%</span></p>
+              <p className="text-sm">Bias reduction: <span className="font-semibold text-violet-blue">{social.bias_reduction_pct}%</span></p>
             </div>
           </div>
           <div className="bg-green-50 rounded-xl p-4">
@@ -89,22 +124,22 @@ function CaseStudyDetail({ study, onClose }) {
               <p className="text-sm">Startup growth: <span className={`font-semibold ${economic.startup_growth_pct >= 0 ? 'text-green-700' : 'text-red-600'}`}>{economic.startup_growth_pct}%</span></p>
             </div>
           </div>
-          <div className="bg-purple-50 rounded-xl p-4">
-            <h4 className="text-sm font-semibold text-purple-800 mb-2">Implementation</h4>
+          <div className="bg-eggshell-100 rounded-xl p-4">
+            <h4 className="text-sm font-semibold text-rich-black mb-2">Implementation</h4>
             <div className="space-y-1">
-              <p className="text-sm">Timeline: <span className="font-semibold text-purple-700">{impl.timeline_months} months</span></p>
-              <p className="text-sm">Compliance: <span className="font-semibold text-purple-700">{impl.compliance_rate_pct}%</span></p>
+              <p className="text-sm">Timeline: <span className="font-semibold text-rich-black">{impl.timeline_months} months</span></p>
+              <p className="text-sm">Compliance: <span className="font-semibold text-rich-black">{impl.compliance_rate_pct}%</span></p>
             </div>
           </div>
         </div>
 
         {study.policy?.key_provisions && (
           <div className="mb-6">
-            <h4 className="text-sm font-semibold text-gray-900 mb-2">Key Provisions</h4>
+            <h4 className="text-sm font-semibold text-rich-black mb-2">Key Provisions</h4>
             <ul className="space-y-1">
               {study.policy.key_provisions.map((p, i) => (
                 <li key={i} className="text-sm text-gray-600 flex items-start gap-2">
-                  <span className="text-emerald-500 mt-1">-</span> {p}
+                  <span className="text-violet-blue mt-1">-</span> {p}
                 </li>
               ))}
             </ul>
@@ -113,10 +148,10 @@ function CaseStudyDetail({ study, onClose }) {
 
         {study.outcomes?.qualitative_insights && (
           <div className="mb-6">
-            <h4 className="text-sm font-semibold text-gray-900 mb-2">Lessons Learned</h4>
+            <h4 className="text-sm font-semibold text-rich-black mb-2">Lessons Learned</h4>
             <ul className="space-y-2">
               {study.outcomes.qualitative_insights.map((insight, i) => (
-                <li key={i} className="text-sm text-gray-600 bg-gray-50 rounded-lg p-3">
+                <li key={i} className="text-sm text-gray-600 bg-alice-blue rounded-lg p-3">
                   {insight}
                 </li>
               ))}
@@ -136,11 +171,16 @@ function CaseStudyDetail({ study, onClose }) {
 
 export default function CaseStudyBrowser() {
   const [studies, setStudies] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredStudies, setFilteredStudies] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [searching, setSearching] = useState(false);
   const [selected, setSelected] = useState(null);
   const [detailLoading, setDetailLoading] = useState(false);
+
+  const [keyword, setKeyword] = useState('');
+  const [selectedRegions, setSelectedRegions] = useState([]);
+  const [selectedQualities, setSelectedQualities] = useState([]);
+  const [sortBy, setSortBy] = useState('date');
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     listCaseStudies()
@@ -149,22 +189,44 @@ export default function CaseStudyBrowser() {
       .finally(() => setLoading(false));
   }, []);
 
-  const handleSearch = async (e) => {
-    e.preventDefault();
-    if (!searchQuery.trim()) {
-      listCaseStudies().then(res => setStudies(res.data));
-      return;
+  useEffect(() => {
+    let result = [...studies];
+
+    if (keyword.trim()) {
+      const kw = keyword.toLowerCase();
+      result = result.filter(s =>
+        s.policy_name.toLowerCase().includes(kw) ||
+        s.country.toLowerCase().includes(kw) ||
+        (s.tags && s.tags.some(t => t.toLowerCase().includes(kw)))
+      );
     }
-    setSearching(true);
-    try {
-      const res = await searchCaseStudies(searchQuery);
-      setStudies(res.data);
-    } catch (err) {
-      // keep existing results
-    } finally {
-      setSearching(false);
+
+    if (selectedRegions.length > 0) {
+      const allowedCountries = selectedRegions.flatMap(r => REGION_MAP[r] || []);
+      result = result.filter(s => allowedCountries.includes(s.country));
     }
-  };
+
+    if (selectedQualities.length > 0) {
+      result = result.filter(s => selectedQualities.includes(s.data_quality));
+    }
+
+    if (sortBy === 'date') {
+      result.sort((a, b) => new Date(b.enacted_date) - new Date(a.enacted_date));
+    } else if (sortBy === 'country') {
+      result.sort((a, b) => a.country.localeCompare(b.country));
+    } else if (sortBy === 'name') {
+      result.sort((a, b) => a.policy_name.localeCompare(b.policy_name));
+    }
+
+    setFilteredStudies(result);
+    setCurrentPage(1);
+  }, [studies, keyword, selectedRegions, selectedQualities, sortBy]);
+
+  const totalPages = Math.ceil(filteredStudies.length / ITEMS_PER_PAGE);
+  const paginatedStudies = filteredStudies.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
 
   const handleCardClick = async (studyId) => {
     setDetailLoading(true);
@@ -178,49 +240,196 @@ export default function CaseStudyBrowser() {
     }
   };
 
+  const resetFilters = () => {
+    setKeyword('');
+    setSelectedRegions([]);
+    setSelectedQualities([]);
+    setSortBy('date');
+  };
+
+  const toggleRegion = (region) => {
+    setSelectedRegions(prev =>
+      prev.includes(region) ? prev.filter(r => r !== region) : [...prev, region]
+    );
+  };
+
+  const toggleQuality = (quality) => {
+    setSelectedQualities(prev =>
+      prev.includes(quality) ? prev.filter(q => q !== quality) : [...prev, quality]
+    );
+  };
+
   return (
     <div>
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Case Study Library</h1>
-        <p className="text-gray-600 text-sm">Explore international AI policies with real outcome data.</p>
+      {/* Breadcrumb */}
+      <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
+        <Link to="/" className="hover:text-violet-blue transition-colors">Home</Link>
+        <ChevronRight size={14} />
+        <span className="text-rich-black font-medium">Case Study Library</span>
       </div>
 
-      <form onSubmit={handleSearch} className="flex gap-2 mb-6">
-        <div className="relative flex-1">
-          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={e => setSearchQuery(e.target.value)}
-            placeholder="Search policies (e.g., 'transparency regulation Africa')..."
-            className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+      {/* Header row */}
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+        <div>
+          <h1 className="text-3xl font-bold text-rich-black">AI Policy Repository</h1>
+          <p className="text-gray-500 text-sm mt-1">Navigate a comprehensive database of global AI policy frameworks and validated international case studies.</p>
         </div>
-        <button
-          type="submit"
-          disabled={searching}
-          className="px-4 py-2.5 bg-blue-600 text-white rounded-xl hover:bg-blue-700 disabled:opacity-50 transition-colors"
-        >
-          {searching ? <Loader2 size={16} className="animate-spin" /> : 'Search'}
-        </button>
-      </form>
-
-      {loading ? (
-        <div className="flex items-center justify-center py-12">
-          <Loader2 size={24} className="animate-spin text-blue-500" />
+        <div className="flex items-center gap-3">
+          <select
+            value={sortBy}
+            onChange={e => setSortBy(e.target.value)}
+            className="px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-blue bg-white"
+          >
+            <option value="date">Sort by: Recent</option>
+            <option value="country">Sort by: Country</option>
+            <option value="name">Sort by: Name</option>
+          </select>
+          <button className="px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2 transition-colors">
+            <Download size={14} />
+            Export List
+          </button>
         </div>
-      ) : (
-        <div className="grid md:grid-cols-2 gap-4">
-          {studies.map(study => (
-            <CaseStudyCard key={study.id} study={study} onClick={() => handleCardClick(study.id)} />
-          ))}
+      </div>
+
+      {/* Stats bar */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+        {[
+          { label: 'TOTAL STUDIES', value: studies.length },
+          { label: 'GLOBAL REGIONS', value: Object.keys(REGION_MAP).length },
+          { label: 'COMPREHENSIVE ACTS', value: studies.filter(s => s.policy_type === 'comprehensive').length },
+          { label: 'HIGH QUALITY DATA', value: studies.filter(s => s.data_quality === 'high').length },
+        ].map(stat => (
+          <div key={stat.label} className="bg-white rounded-xl border border-gray-200 p-4">
+            <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">{stat.label}</p>
+            <p className="text-2xl font-bold text-violet-blue">{stat.value}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Main content: sidebar + grid */}
+      <div className="flex flex-col lg:flex-row gap-6">
+        {/* Sidebar */}
+        <aside className="w-full lg:w-64 shrink-0">
+          <div className="bg-white rounded-xl border border-gray-200 p-5 space-y-5 lg:sticky lg:top-24">
+            <div>
+              <h3 className="text-sm font-bold text-rich-black mb-1">Filters</h3>
+              <p className="text-xs text-gray-400 uppercase tracking-wide">Refine Repository</p>
+            </div>
+
+            {/* Keywords */}
+            <div>
+              <label className="block text-sm font-semibold text-rich-black mb-2">Keywords</label>
+              <div className="relative">
+                <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                <input
+                  type="text"
+                  value={keyword}
+                  onChange={e => setKeyword(e.target.value)}
+                  placeholder="e.g. EU Act, AIDA..."
+                  className="w-full pl-9 pr-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-blue"
+                />
+              </div>
+            </div>
+
+            {/* Region */}
+            <div>
+              <label className="block text-sm font-semibold text-rich-black mb-2">Region</label>
+              <div className="space-y-2">
+                {Object.keys(REGION_MAP).map(region => (
+                  <label key={region} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={selectedRegions.includes(region)}
+                      onChange={() => toggleRegion(region)}
+                      className="rounded border-gray-300 text-violet-blue focus:ring-violet-blue accent-violet-blue"
+                    />
+                    {region}
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            {/* Data Quality */}
+            <div>
+              <label className="block text-sm font-semibold text-rich-black mb-2">Impact Quality</label>
+              <div className="space-y-2">
+                {Object.entries(QUALITY_LABELS).map(([key, { label }]) => (
+                  <label key={key} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={selectedQualities.includes(key)}
+                      onChange={() => toggleQuality(key)}
+                      className="rounded border-gray-300 text-violet-blue focus:ring-violet-blue accent-violet-blue"
+                    />
+                    {label}
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            {/* Reset */}
+            <button
+              onClick={resetFilters}
+              className="w-full py-2 text-sm text-gray-600 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-2"
+            >
+              <RotateCcw size={14} />
+              Reset Filters
+            </button>
+          </div>
+        </aside>
+
+        {/* Card grid */}
+        <div className="flex-1">
+          {loading ? (
+            <div className="flex items-center justify-center py-12">
+              <Loader2 size={24} className="animate-spin text-violet-blue" />
+            </div>
+          ) : paginatedStudies.length > 0 ? (
+            <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
+              {paginatedStudies.map(study => (
+                <CaseStudyCard key={study.id} study={study} onClick={() => handleCardClick(study.id)} />
+              ))}
+            </div>
+          ) : (
+            <p className="text-center text-gray-500 py-12">No case studies match your filters.</p>
+          )}
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="flex justify-center items-center gap-2 mt-6">
+              <button
+                onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                disabled={currentPage === 1}
+                className="px-3 py-1.5 text-sm border border-gray-200 rounded-lg disabled:opacity-40 hover:bg-gray-50 transition-colors"
+              >
+                &lsaquo;
+              </button>
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+                <button
+                  key={page}
+                  onClick={() => setCurrentPage(page)}
+                  className={`w-9 h-9 text-sm rounded-lg transition-colors ${
+                    page === currentPage
+                      ? 'bg-violet-blue text-white'
+                      : 'border border-gray-200 hover:bg-gray-50'
+                  }`}
+                >
+                  {page}
+                </button>
+              ))}
+              <button
+                onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+                disabled={currentPage === totalPages}
+                className="px-3 py-1.5 text-sm border border-gray-200 rounded-lg disabled:opacity-40 hover:bg-gray-50 transition-colors"
+              >
+                &rsaquo;
+              </button>
+            </div>
+          )}
         </div>
-      )}
+      </div>
 
-      {studies.length === 0 && !loading && (
-        <p className="text-center text-gray-500 py-12">No case studies found.</p>
-      )}
-
+      {/* Detail modal */}
       {selected && <CaseStudyDetail study={selected} onClose={() => setSelected(null)} />}
     </div>
   );
