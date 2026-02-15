@@ -121,6 +121,5 @@ class PolicyTemplate(BaseModel):
 
 class HealthResponse(BaseModel):
     status: str
-    embedding_model: Optional[str] = None
-    embedding_dim: Optional[int] = None
+    search_engine: str = "bm25"
     collections: Dict[str, int] = {}

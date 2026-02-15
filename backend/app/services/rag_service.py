@@ -52,45 +52,15 @@ class RAGService:
     def answer_question(self, question: str, difficulty: str = None) -> dict:
         start = time.time()
 
-        from app.services.embedding_service import embedding_service
-        from app.services.vectordb_service import vectordb_service
         from app.services.search_service import search_service
         from app.services.llm_service import llm_service
 
-        # Search concepts collection
-        collection_name = embedding_service.get_collection_name("concepts")
-        collection = vectordb_service.get_or_create_collection(collection_name)
-        query_embedding = embedding_service.embed_text(question)
-
-        results = search_service.hybrid_search(
-            collection_name=collection_name,
+        results = search_service.search(
+            collection_name="concepts",
             query=question,
-            query_embedding=query_embedding,
-            chromadb_collection=collection,
-            top_k=3
+            top_k=3,
         )
 
-        # Also search PDF policy documents for supplementary context
-        pdf_context = ""
-        pdf_collection_name = embedding_service.get_collection_name("policy_docs")
-        try:
-            pdf_collection = vectordb_service.get_or_create_collection(pdf_collection_name)
-            if vectordb_service.get_collection_count(pdf_collection) > 0:
-                pdf_results = search_service.hybrid_search(
-                    collection_name=pdf_collection_name,
-                    query=question,
-                    query_embedding=query_embedding,
-                    chromadb_collection=pdf_collection,
-                    top_k=2
-                )
-                if pdf_results:
-                    pdf_context = "\n\nAdditional policy document context:\n" + "\n---\n".join(
-                        r["document"][:500] for r in pdf_results
-                    )
-        except Exception:
-            pass
-
-        # Build context from search results
         concept_context = "\n---\n".join(r["document"] for r in results) if results else "No relevant concepts found."
         sources = [r["metadata"].get("term", r["id"]) for r in results]
 
@@ -110,12 +80,10 @@ class RAGService:
                                 })
                     break
 
-        # Generate answer
         system_prompt = self._build_system_prompt()
         user_prompt = (
             f"Question: {question}\n\n"
-            f"Relevant context:\n{concept_context}"
-            f"{pdf_context}\n\n"
+            f"Relevant context:\n{concept_context}\n\n"
             "Provide a clear, informative answer tailored to Moroccan policymakers."
         )
 
@@ -123,7 +91,7 @@ class RAGService:
             system_prompt=system_prompt,
             user_prompt=user_prompt,
             temperature=0.4,
-            max_tokens=1024
+            max_tokens=1024,
         )
 
         elapsed = int((time.time() - start) * 1000)
@@ -133,7 +101,7 @@ class RAGService:
             "answer": answer,
             "related_concepts": related,
             "sources": sources,
-            "processing_time_ms": elapsed
+            "processing_time_ms": elapsed,
         }
 
     def get_all_concepts(self) -> list:
@@ -143,7 +111,7 @@ class RAGService:
                 "term": c["term"],
                 "definition": c["definition"],
                 "difficulty": c.get("metadata", {}).get("difficulty", "intermediate"),
-                "categories": c.get("metadata", {}).get("categories", [])
+                "categories": c.get("metadata", {}).get("categories", []),
             }
             for c in self._concepts_data
         ]

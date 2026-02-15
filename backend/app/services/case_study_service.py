@@ -1,5 +1,4 @@
 import json
-import time
 import logging
 from typing import List, Dict, Optional, Any
 
@@ -31,7 +30,7 @@ class CaseStudyService:
                 "enacted_date": cs["policy"].get("enacted_date", ""),
                 "data_quality": cs.get("outcomes", {}).get("data_quality", "medium"),
                 "tags": cs.get("metadata", {}).get("tags", []),
-                "relevance_score": None
+                "relevance_score": None,
             }
             for cs in self._case_studies
         ]
@@ -44,33 +43,24 @@ class CaseStudyService:
                     "country": cs["country"],
                     "policy": cs["policy"],
                     "outcomes": cs["outcomes"],
-                    "metadata": cs["metadata"]
+                    "metadata": cs["metadata"],
                 }
         return None
 
     def search(self, query: str, country: str = None, policy_type: str = None, top_k: int = 5) -> List[Dict]:
-        from app.services.embedding_service import embedding_service
-        from app.services.vectordb_service import vectordb_service
         from app.services.search_service import search_service
 
-        collection_name = embedding_service.get_collection_name("case_studies")
-        collection = vectordb_service.get_or_create_collection(collection_name)
-        query_embedding = embedding_service.embed_text(query)
-
-        # Build metadata filter
         where = None
         if country:
             where = {"country": country}
         elif policy_type:
             where = {"policy_type": policy_type}
 
-        results = search_service.hybrid_search(
-            collection_name=collection_name,
+        results = search_service.search(
+            collection_name="case_studies",
             query=query,
-            query_embedding=query_embedding,
-            chromadb_collection=collection,
             top_k=top_k,
-            where=where
+            where=where,
         )
 
         summaries = []
@@ -85,14 +75,13 @@ class CaseStudyService:
                     "enacted_date": cs_data["policy"].get("enacted_date", ""),
                     "data_quality": cs_data["outcomes"].get("data_quality", "medium"),
                     "tags": cs_data["metadata"].get("tags", []),
-                    "relevance_score": r.get("rrf_score", 0.0)
+                    "relevance_score": r.get("score", 0.0),
                 })
         return summaries
 
     def find_similar(self, description: str, policy_type: str = None, top_k: int = 5) -> List[Dict]:
         """Find case studies similar to a policy description. Used by impact simulator."""
         results = self.search(description, policy_type=policy_type, top_k=top_k)
-        # Enrich with full data for the impact simulator
         enriched = []
         for r in results:
             full = self.get_by_id(r["id"])

@@ -212,3 +212,6 @@ claude_folders/
 storage/chromadb/
 node_modules/
 .vite/
+
+# Vercel
+.vercel/
