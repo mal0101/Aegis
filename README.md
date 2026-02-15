@@ -5,7 +5,7 @@ AI-powered decision support platform for Moroccan policymakers. Understand AI po
 ## Features
 
 - **AI Concept Chat** — RAG chatbot that explains AI policy terms in Morocco's context
-- **Case Study Library** — 8 international AI policies with real outcome metrics
+- **Case Study Library** — 8 international AI policies with real outcome metrics 
 - **Impact Simulator** — Predicts multi-dimensional impacts of proposed policies on Morocco
 
 ## Prerequisites
