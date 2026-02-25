@@ -209,6 +209,7 @@ __marimo__/
 claude_folders/
 
 # PolicyBridge specific
+experiments/results/
 storage/chromadb/
 node_modules/
 .vite/
